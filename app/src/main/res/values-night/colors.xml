@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
 <!--    <color name="colorPrimary">#3F51B5</color>-->
 <!--    <color name="colorPrimaryDark">#303F9F</color>-->
-    <color name="colorAccent">#6750A4</color>
-    <color name="backgroundMain">#E6E1E5</color>
+    <color name="colorAccent">#9B3A5B</color>
+    <color name="backgroundMain">#FF000000</color>
+
 </resources>
