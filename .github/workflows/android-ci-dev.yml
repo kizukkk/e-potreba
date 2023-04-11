@@ -26,7 +26,7 @@ jobs:
       - name: Update Username from Secrets
         env:
           TOKEN: ${{ secrets.TOKEN }}
-        run: echo TOKEN="$TOKEN" > ./local.properties
+        run: echo TOKEN="$TOKEN" > /home/runner/work/e-potreba/e-potreba/local.properties
 
       - name: Upload APK
         uses: actions/upload-artifact@v1
