@@ -13,26 +13,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Setup JDK
-        uses: actions/setup-java@v1
+        uses: actions/checkout@v2
+      - name: Restore Cache
+        uses: actions/cache@v2
         with:
-          java-version: "17"
-
-      - name: Build APK
-        run: bash ./gradlew assembleDebug --stacktrace
-
-      - name: Update Username from Secrets
-        env:
-          TOKEN: ${{ secrets.TOKEN }}
-        run: echo TOKEN="$TOKEN" > /home/runner/work/e-potreba/e-potreba/local.properties
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+      - name: Assemble Debug
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/**.apk
   release:
     name: Release APK
     needs: apk
