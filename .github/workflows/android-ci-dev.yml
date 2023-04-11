@@ -8,22 +8,56 @@ on:
       - "v*"
 
 jobs:
-  Gradle:
+  apk:
+    name: Generate APK
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-      - name: setup jdk
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 11
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-      - name: Build Release APK
-        run: ./gradlew assembleRelease
-      - name: Build Android release APK when create new tag
-        uses: kyze8439690/action-release-releaseapk@1.0.0
+          java-version: "17"
 
+      - name: Build APK
+        run: bash ./gradlew assembleDebug --stacktrace
+
+      - name: Update Username from Secrets
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: echo TOKEN="$TOKEN" > ./local.properties
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+  release:
+    name: Release APK
+    needs: apk
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download APK from build
+        uses: actions/download-artifact@v1
+        with:
+          name: apk
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          APP_FOLDER: app
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+      - name: Upload Release APK
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: apk/app-debug.apk
+          asset_name: ePotreba-dev.apk
+          asset_content_type: application/zip
