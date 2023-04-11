@@ -1,0 +1,39 @@
+  {
+  "project_info": {
+    "project_number": "809327395541",
+    "project_id": "e-potreba",
+    "storage_bucket": "e-potreba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809327395541:android:7ced9895b13c1c06ac985c",
+        "android_client_info": {
+          "package_name": "com.eteam.epotreba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809327395541-2068d3mqrs1m8urf7369pmp6r891asj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm0o_LBBazrxQvAD0GH3yw3uqV1jib3hQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809327395541-2068d3mqrs1m8urf7369pmp6r891asj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
