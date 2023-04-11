@@ -10,6 +10,7 @@ on:
 jobs:
   apk:
     name: Generate APK
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,7 +21,7 @@ jobs:
         with:
           java-version: "17"
 
-      - name: Add secret API Key
+      - name: Create properties file
         run: echo "TOKEN=\""${{ secrets.TOKEN }}"\"" >> local.properties
 
       - name: Build APK
@@ -31,6 +32,7 @@ jobs:
         with:
           name: apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
   release:
     name: Release APK
     needs: apk
@@ -41,6 +43,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: apk
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -49,6 +52,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+
       - name: Upload Release APK
         id: upload_release_asset
         uses: actions/upload-release-asset@v1.0.1
