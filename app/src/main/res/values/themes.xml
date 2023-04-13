@@ -4,4 +4,13 @@
         <item name="android:windowBackground">@color/backgroundMain</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="Theme.Epotreba.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Epotreba.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Epotreba.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
