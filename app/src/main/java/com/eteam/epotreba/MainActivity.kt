@@ -1,26 +1,37 @@
 package com.eteam.epotreba
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.eteam.epotreba.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val toiletsListFragment = ToiletsListFragment()
+        val nearFragment = NearFragment()
+        val profileFragment = ProfileFragment()
+
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.list -> setFragment(toiletsListFragment)
+                R.id.near -> setFragment(nearFragment)
+                R.id.profile -> setFragment(profileFragment)
+            }
+            true
+        }
+    }
+
+    private fun setFragment(fragment: Fragment) {
+        supportFragmentManager.commit {
+            replace(R.id.fragmentContainerView, fragment)
+        }
     }
 }
