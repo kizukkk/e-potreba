@@ -1,33 +1,33 @@
-  {
+{
   "project_info": {
-    "project_number": "809327395541",
-    "project_id": "e-potreba",
-    "storage_bucket": "e-potreba.appspot.com"
+    "project_number": "166621933311",
+    "project_id": "e-potreba-2a821",
+    "storage_bucket": "e-potreba-2a821.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:809327395541:android:7ced9895b13c1c06ac985c",
+        "mobilesdk_app_id": "1:166621933311:android:9b09e0510c075b5d18e6ca",
         "android_client_info": {
           "package_name": "com.eteam.epotreba"
         }
       },
       "oauth_client": [
         {
-          "client_id": "809327395541-2068d3mqrs1m8urf7369pmp6r891asj8.apps.googleusercontent.com",
+          "client_id": "166621933311-df5acgmctv6r1374ukdjm6f43eg021g0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAm0o_LBBazrxQvAD0GH3yw3uqV1jib3hQ"
+          "current_key": "AIzaSyChD41nTtGe3hZobwO7Ade-8F2toXZJbb4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "809327395541-2068d3mqrs1m8urf7369pmp6r891asj8.apps.googleusercontent.com",
+              "client_id": "166621933311-df5acgmctv6r1374ukdjm6f43eg021g0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
