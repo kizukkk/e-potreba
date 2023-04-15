@@ -4,8 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.eteam.epotreba.R
 import com.eteam.epotreba.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.eteam.epotreba.presentation.fragment.NearFragment
+import com.eteam.epotreba.presentation.fragment.ProfileFragment
+import com.eteam.epotreba.presentation.fragment.ToiletsListFragment
 
 class MainActivity : AppCompatActivity() {
 
