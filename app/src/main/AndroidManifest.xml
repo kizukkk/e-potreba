@@ -17,7 +17,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Epotreba">
             <intent-filter>
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".markers_action.MarkerCreateActivity"
+            android:name=".presentation.activity.MarkerCreateActivity"
             android:exported="true">
         </activity>
     </application>
