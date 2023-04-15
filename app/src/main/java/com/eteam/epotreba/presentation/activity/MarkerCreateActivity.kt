@@ -1,4 +1,4 @@
-package com.eteam.epotreba.markers_action
+package com.eteam.epotreba.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
