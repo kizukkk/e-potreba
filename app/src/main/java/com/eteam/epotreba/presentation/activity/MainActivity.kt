@@ -1,4 +1,4 @@
-package com.eteam.epotreba
+package com.eteam.epotreba.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
