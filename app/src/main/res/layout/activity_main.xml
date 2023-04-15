@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bottomNavigationView"
-        android:name="com.eteam.epotreba.NearFragment"
+        android:name="com.eteam.epotreba.presentation.fragment.NearFragment"
         tools:layout="@layout/fragment_near">
 
     </androidx.fragment.app.FragmentContainerView>

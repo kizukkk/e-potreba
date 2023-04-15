@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".markers_action.MarkerCreateActivity">
+    tools:context=".presentation.activity.MarkerCreateActivity">
 
     <Space
         android:id="@+id/space"

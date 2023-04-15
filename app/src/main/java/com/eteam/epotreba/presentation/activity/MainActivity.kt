@@ -1,18 +1,16 @@
-package com.eteam.epotreba
+package com.eteam.epotreba.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.eteam.epotreba.R
 import com.eteam.epotreba.databinding.ActivityMainBinding
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.eteam.epotreba.presentation.fragment.NearFragment
+import com.eteam.epotreba.presentation.fragment.ProfileFragment
+import com.eteam.epotreba.presentation.fragment.ToiletsListFragment
 
-class MainActivity : AppCompatActivity(), OnMapReadyCallback {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,25 +30,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             true
         }
-
-        val mapFragment = SupportMapFragment.newInstance()
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.mapContainerView, mapFragment)
-            .commit()
     }
 
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.commit {
             replace(R.id.fragmentContainerView, fragment)
         }
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        googleMap.addMarker(
-            MarkerOptions()
-                .position(LatLng(0.0, 0.0))
-                .title("Marker").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_nav_near_24))
-        )
     }
 }
