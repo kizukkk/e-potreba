@@ -10,6 +10,7 @@ import com.eteam.epotreba.presentation.fragment.NearFragment
 import com.eteam.epotreba.presentation.fragment.ProfileFragment
 import com.eteam.epotreba.presentation.fragment.ToiletsListFragment
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         val toiletsListFragment = ToiletsListFragment()
         val nearFragment = NearFragment()
         val profileFragment = ProfileFragment()
+
+        setFragment(toiletsListFragment)
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
