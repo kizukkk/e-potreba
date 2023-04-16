@@ -13,11 +13,14 @@ import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class NearFragment : Fragment(R.layout.fragment_near) {
+    private lateinit var dialog: BottomSheetDialog
+    private lateinit var recyclerView: RecyclerView
+
     private val adapter = MarkerAdapter()
     private val items = GetMarkersUseCase().execute()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,22 +39,23 @@ class NearFragment : Fragment(R.layout.fragment_near) {
                 googleMap.addMarker(markerOptions)
             }
         }
+
+        showBottomSheet()
         return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val recycler = view.findViewById<RecyclerView>(R.id.rv_marker_list)
-
-        recycler.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        recycler.adapter = adapter
-
-        adapter.submit(items)
     }
 
     private fun showBottomSheet() {
         val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
-        dialogView =
+        dialog = activity?.let { BottomSheetDialog(it, R.style.BottomSheetDialogTheme) }!!
+        dialog.setContentView(dialogView)
+
+        recyclerView = dialogView.findViewById<RecyclerView>(R.id.rv_marker_list)
+
+        recyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+        recyclerView.adapter = adapter
+
+        adapter.submit(items)
+
+        dialog.show()
     }
 }
