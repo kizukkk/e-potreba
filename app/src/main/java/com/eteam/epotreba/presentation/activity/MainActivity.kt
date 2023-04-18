@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
         val nearFragment = NearFragment()
         val profileFragment = ProfileFragment()
 
+        //Заплатка по першочерговому виклику фрагменту Near
+        //Через що двічи "роздувався" фрагмент Near: при старті актівіти
+        //Та при виборі пункту "Поруч" в Navbar
+        setFragment(toiletsListFragment)
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.list -> setFragment(toiletsListFragment)
