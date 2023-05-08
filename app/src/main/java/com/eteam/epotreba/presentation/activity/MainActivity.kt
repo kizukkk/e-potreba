@@ -35,6 +35,14 @@ class MainActivity : AppCompatActivity() {
         val nearFragment = NearFragment()
         val profileFragment = ProfileFragment()
 
+
+        //АХТУНГ! КОСТИЛІ
+        if (viewModel.markerList.value?.isEmpty() == true){
+            lifecycleScope.launch {
+                viewModel.update()
+            }
+        }
+
         swipeRefreshLayout = binding.swiperRefreshLayout
         swipeRefreshLayout.setOnRefreshListener {
             lifecycleScope.launch {
