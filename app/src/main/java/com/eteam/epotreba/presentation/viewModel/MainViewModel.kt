@@ -10,13 +10,8 @@ import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
 
 class MainViewModel : ViewModel() {
 
-
-
-    var markerList: LiveData<List<MarkerModel>> = liveData {
-        val product = getMarkers()
-        emit(product)
-    }
-
+    var markerList: MutableLiveData<List<MarkerModel>> =
+        MutableLiveData<List<MarkerModel>>(emptyList())
 
     private val getMarkersUseCase by lazy(LazyThreadSafetyMode.NONE) {
         GetMarkersUseCase(repository = MarkerRepository())
@@ -26,10 +21,9 @@ class MainViewModel : ViewModel() {
         return getMarkersUseCase.execute()
     }
 
-    @SuppressLint("CheckResult")
     suspend fun update(){
         val update = getMarkers()
-        markerList.map { update }
+        markerList.postValue(update)
     }
 
 
