@@ -10,8 +10,10 @@ class MarkerRepository() {
     private val db = Firebase.firestore
 
 
-    fun saveData(markerModel: MarkerModel){
-        TODO("Implement save data to DB")
+    fun saveData(marker: MarkerModel){
+        db.collection("marks").add(marker)
+            .addOnSuccessListener { Log.d("DB-Context", "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w("DB-Context", "Error writing document", e) }
     }
 
     suspend fun getData(): List<MarkerModel>{
