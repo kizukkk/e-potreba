@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
-
+import kotlinx.coroutines.launch
 
 
 class MainViewModel : ViewModel() {
@@ -15,6 +15,12 @@ class MainViewModel : ViewModel() {
 
     private val getMarkersUseCase by lazy(LazyThreadSafetyMode.NONE) {
         GetMarkersUseCase(repository = MarkerRepository())
+    }
+
+    init {
+        viewModelScope.launch {
+            update()
+        }
     }
 
     private suspend fun getMarkers(): List<MarkerModel> {
