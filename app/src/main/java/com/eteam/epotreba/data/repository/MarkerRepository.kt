@@ -1,5 +1,6 @@
 package com.eteam.epotreba.data.repository
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.google.android.gms.maps.model.LatLng
@@ -30,6 +31,7 @@ class MarkerRepository() {
 
 
                     val item = MarkerModel(
+                        id = result.id,
                         title = result.data?.get("title").toString(),
                         about = result.data?.get("about").toString(),
                         rate = result.data?.get("rate").toString().toDouble() ,
@@ -39,5 +41,11 @@ class MarkerRepository() {
                 }
             }.await()
         return markerList
+    }
+
+    suspend fun deleteData(id: String){
+        db.collection("marks").document(id).delete()
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }.await()
     }
 }
