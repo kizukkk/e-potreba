@@ -11,6 +11,7 @@ import com.eteam.epotreba.domain.models.MarkerModel
 class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
 
     private var markerList = emptyList<MarkerModel>()
+    private var onClickListener: OnClickListener? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val title : TextView = view.findViewById(R.id.marker_title)
@@ -28,6 +29,12 @@ class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
         holder.title.text = markerList[position].title
         holder.about.text = markerList[position].about
         holder.pos.text = markerList[position].position.toString()
+
+        holder.itemView.setOnClickListener {
+            if (onClickListener != null) {
+                onClickListener!!.onClick(position, markerList[position] )
+            }
+        }
     }
 
     override fun getItemCount(): Int {
