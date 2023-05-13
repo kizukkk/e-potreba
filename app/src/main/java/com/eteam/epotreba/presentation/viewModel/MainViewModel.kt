@@ -17,6 +17,10 @@ class MainViewModel : ViewModel() {
         GetMarkersUseCase(repository = MarkerRepository())
     }
 
+    private val deleteMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        DeleteMarkerUseCase(repository = MarkerRepository())
+    }
+
     init {
         viewModelScope.launch {
             update()
@@ -30,6 +34,15 @@ class MainViewModel : ViewModel() {
     suspend fun update(){
         val update = getMarkers()
         markerList.postValue(update)
+    }
+
+    suspend fun delete(marker: MarkerModel){
+        deleteMarkerUseCase.execute(marker.id)
+    }
+
+
+    fun passMarkerToFragment(marker: MarkerModel){
+        passMarker = marker
     }
 
 
