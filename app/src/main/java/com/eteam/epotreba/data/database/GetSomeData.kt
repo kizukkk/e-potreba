@@ -5,13 +5,14 @@ import net.datafaker.Faker
 
 class GetSomeData {
 
+    private val faker = Faker()
+
     fun execute(): List<MarkerModel> {
         val num = 10
         return generateUsersList(num)
     }
 
     private fun generateUsersList(numUsers: Int): List<MarkerModel> {
-        val faker = Faker()
         val marks = mutableListOf<MarkerModel>()
 
         repeat(numUsers) {

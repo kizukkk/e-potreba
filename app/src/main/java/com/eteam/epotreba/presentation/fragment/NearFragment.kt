@@ -30,13 +30,8 @@ class NearFragment : Fragment(R.layout.fragment_near) {
             childFragmentManager.findFragmentById(R.id.mapsContainerView) as SupportMapFragment?
 
         supportMapFragment!!.getMapAsync { googleMap ->
-            googleMap.setOnMapClickListener { latLng ->
-                val markerOptions = MarkerOptions()
-                markerOptions.position(latLng)
-                markerOptions.title("${latLng.latitude} : ${latLng.longitude}")
-                googleMap.clear()
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
-                googleMap.addMarker(markerOptions)
+            items.forEach {
+                googleMap.addMarker(MarkerOptions().title(it.title).position(it.position))
             }
         }
 
@@ -59,3 +54,6 @@ class NearFragment : Fragment(R.layout.fragment_near) {
         dialog.show()
     }
 }
+
+//FIXME: fix map reload on fragment change
+//FIXME: make bottom sheet appear only in near fragment

@@ -9,12 +9,12 @@ import com.google.firebase.ktx.Firebase
 
 class MarkerCreateActivity : AppCompatActivity() {
 
+    private val db = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMarkerCreateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val db = Firebase.firestore
 
         binding.createButton.setOnClickListener {
 
