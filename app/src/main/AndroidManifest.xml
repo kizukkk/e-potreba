@@ -20,6 +20,17 @@
             android:name=".presentation.activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Epotreba">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.MarkerCreateActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.SignInActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Epotreba">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,10 +38,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".presentation.activity.MarkerCreateActivity"
-            android:exported="true">
-        </activity>
+
+
     </application>
 
 </manifest>
