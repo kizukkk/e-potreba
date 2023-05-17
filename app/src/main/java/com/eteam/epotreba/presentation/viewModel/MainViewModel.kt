@@ -5,6 +5,7 @@ import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.eteam.epotreba.domain.usecase.DeleteMarkerUseCase
 import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 
@@ -12,6 +13,8 @@ class MainViewModel : ViewModel() {
 
     var markerList: MutableLiveData<List<MarkerModel>> =
         MutableLiveData<List<MarkerModel>>(emptyList())
+
+    val currentUser = FirebaseAuth.getInstance().currentUser
 
     lateinit var passMarker: MarkerModel
 
