@@ -18,42 +18,5 @@ import com.eteam.epotreba.presentation.viewModel.MainViewModel
 
 class NearFragment : Fragment(R.layout.fragment_near) {
 
-    private val viewModel: MainViewModel by activityViewModels()
 
-    private val adapter = MarkerAdapter()
-    lateinit var binding: FragmentNearBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentNearBinding.inflate(inflater)
-        val recycler = binding.rvMarkerList
-
-        recycler.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        recycler.adapter = adapter
-
-
-
-        viewModel.markerList.observe(this as LifecycleOwner) {
-            adapter.submit(it)
-        }
-
-        adapter.setOnClickListener(object : MarkerAdapter.OnClickListener {
-            override fun onClick(position: Int, model: MarkerModel) {
-
-                viewModel.passMarkerToFragment(model)
-
-                val transaction = activity?.supportFragmentManager?.beginTransaction()
-                if(transaction != null){
-                    transaction.replace(R.id.fragmentContainerView, DetailFragment())
-                    transaction.commit()
-                }
-            }
-
-        })
-
-        return binding.root
-    }
 }
