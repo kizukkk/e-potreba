@@ -23,30 +23,30 @@ class SignInActivity : AppCompatActivity(){
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
             Log.d(TAG, "onVerificationCompleted:$credential")
-            //signInWithPhoneAuthCredential(credential)
+            goToMain()
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
             Log.w(TAG, "onVerificationFailed", e)
 
-            if (e is FirebaseAuthInvalidCredentialsException) {
-                // Invalid request
-            } else if (e is FirebaseTooManyRequestsException) {
-                // The SMS quota for the project has been exceeded
-            } else if (e is FirebaseAuthMissingActivityForRecaptchaException) {
-                // reCAPTCHA verification attempted with null Activity
+            when (e) {
+                is FirebaseAuthInvalidCredentialsException -> {
+                    Toast.makeText(this@SignInActivity, "Помилковий запит, спробуйте ще раз!!",Toast.LENGTH_LONG).show()
+                }
+                is FirebaseTooManyRequestsException -> {
+                    Toast.makeText(this@SignInActivity, "Досягнуто ліміту СМС на проєкт!",Toast.LENGTH_LONG).show()
+                }
+                is FirebaseAuthMissingActivityForRecaptchaException -> {
+                    // reCAPTCHA verification attempted with null Activity
+                }
             }
 
-            // Show a message and update the UI
         }
 
         override fun onCodeSent(
             verificationId: String,
             token: PhoneAuthProvider.ForceResendingToken,
         ) {
-            // The SMS verification code has been sent to the provided phone number, we
-            // now need to ask the user to enter the code and then construct a credential
-            // by combining the code with a verification ID.
             Log.d(TAG, "onCodeSent:$verificationId")
 
             // Save verification ID and resending token so we can use them later
@@ -56,18 +56,18 @@ class SignInActivity : AppCompatActivity(){
     }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        auth.setLanguageCode("ua")
+
         if(auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            goToMain()
         }
+
+        auth.setLanguageCode("ua")
 
         binding.butSendCode.setOnClickListener{
             val phone = binding.phoneField.text.toString()
@@ -109,22 +109,28 @@ class SignInActivity : AppCompatActivity(){
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential: success")
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-
-                    val user = task.result?.user
+                    goToMain()
                 } else {
-                    // Sign in failed, display a message and update the UI
+
                     Log.w(TAG, "signInWithCredential: failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        // The verification code entered was invalid
+                        Toast.makeText(this, "Не вірний код!",Toast.LENGTH_LONG).show()
                     }
-                    // Update UI
                 }
             }
     }
 
+    private fun goToMain(){
+        if (auth.currentUser?.displayName == null){
+            startActivity(Intent(this, ProfileCreateActivity::class.java))
+        }
+        else{
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+        finish()
+    }
+
 
 }
+
