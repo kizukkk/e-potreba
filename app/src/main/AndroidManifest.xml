@@ -28,6 +28,11 @@
         </activity>
 
         <activity
+            android:name=".presentation.activity.ProfileCreateActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
             android:name=".presentation.activity.SignInActivity"
             android:exported="true"
             android:theme="@style/Theme.Epotreba">
