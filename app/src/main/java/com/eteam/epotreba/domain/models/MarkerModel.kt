@@ -7,9 +7,11 @@ data class MarkerModel(
     val title: String,
     val about: String,
     val position: LatLng,
-    val rate: Double){
+    val rate: Double,
+    val userId: String){
     constructor(title: String,
                 about: String,
                 position: LatLng,
-                rate: Double,): this("null", title, about, position, rate)
+                rate: Double,
+                userId: String): this("null", title, about, position, rate, userId)
 }

@@ -34,8 +34,9 @@ class MarkerRepository() {
                         id = result.id,
                         title = result.data?.get("title").toString(),
                         about = result.data?.get("about").toString(),
-                        rate = result.data?.get("rate").toString().toDouble() ,
-                        position = LatLng(lat,lng)
+                        rate = result.data?.get("rate").toString().toDouble(),
+                        position = LatLng(lat,lng),
+                        userId = result.data?.get("userId").toString()
                     )
                     markerList.add(item)
                 }
