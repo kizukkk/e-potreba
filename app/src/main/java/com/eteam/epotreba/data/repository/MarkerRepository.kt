@@ -12,13 +12,58 @@ class MarkerRepository() {
     private val db = Firebase.firestore
 
 
-    fun saveData(marker: MarkerModel){
+
+    suspend fun commitMarker(id: String, uid: String) {
+        val documentRef =
+            db.collection("commit").document(uid)
+        documentRef.get().addOnSuccessListener { result ->
+
+            if (result.exists()) {
+                val list = result.get("markers") as ArrayList<String>
+
+                list.add(id)
+                documentRef.update("markers", list)
+            } else {
+                val list = object {
+                    val markers = arrayListOf(id)
+                }
+                db.collection("commit").document(uid).set(list)
+
+            }
+        }.await()
+    }
+
+
+    suspend fun voteContains(id: String, uid: String): Boolean {
+        val documentRef =
+            db.collection("commit").document(uid)
+
+        var status: Boolean = true
+
+        documentRef.get().addOnSuccessListener { result ->
+
+            if (result.exists()) {
+                val list = result.get("markers") as ArrayList<String>
+
+                if (list.contains(id))
+                    status = false
+            }
+
+        }.await()
+        Log.i(TAG, status.toString())
+        return status
+    }
+    fun update(marker: MarkerModel) {
+        db.collection("marks").document(marker.id).set(marker)
+    }
+
+    fun save(marker: MarkerModel) {
         db.collection("marks").add(marker)
             .addOnSuccessListener { Log.d("DB-Context", "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w("DB-Context", "Error writing document", e) }
     }
 
-    suspend fun getData(): List<MarkerModel>{
+    suspend fun getData(): List<MarkerModel> {
 
         val markerList: MutableList<MarkerModel> = mutableListOf()
         db.collection("marks")
@@ -34,9 +79,11 @@ class MarkerRepository() {
                         id = result.id,
                         title = result.data?.get("title").toString(),
                         about = result.data?.get("about").toString(),
-                        rate = result.data?.get("rate").toString().toDouble(),
-                        position = LatLng(lat,lng),
-                        userId = result.data?.get("userId").toString()
+                        sumRate = result.data?.get("sumRate").toString().toDouble(),
+                        position = LatLng(lat, lng),
+                        userId = result.data?.get("userId").toString(),
+                        votes = result.data?.get("votes").toString().toInt(),
+                        price = result.data?.get("price").toString().toDouble()
                     )
                     markerList.add(item)
                 }
@@ -44,7 +91,7 @@ class MarkerRepository() {
         return markerList
     }
 
-    suspend fun deleteData(id: String){
+    suspend fun deleteData(id: String) {
         db.collection("marks").document(id).delete()
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }.await()
