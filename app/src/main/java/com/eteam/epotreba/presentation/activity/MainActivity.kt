@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //Заплатка по першочерговому виклику фрагменту Near
         setFragment(toiletsListFragment)
 
         binding.bottomNavigationView.setOnItemSelectedListener {
@@ -59,6 +56,16 @@ class MainActivity : AppCompatActivity() {
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.commit {
             replace(R.id.fragmentContainerView, fragment)
+        }
+    }
+
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack() // Повертає до попереднього фрагмента
+        } else {
+            super.onBackPressed() // Викликає стандартну поведінку кнопки "Назад"
         }
     }
 }
