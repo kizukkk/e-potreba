@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         swipeRefreshLayout = binding.swiperRefreshLayout
         swipeRefreshLayout.setOnRefreshListener {
             lifecycleScope.launch {
-                viewModel.update()
+                viewModel.updateList()
                 swipeRefreshLayout.isRefreshing = false
             }
         }
