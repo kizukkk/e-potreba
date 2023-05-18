@@ -3,6 +3,7 @@ package com.eteam.epotreba.presentation.viewModel
 import androidx.lifecycle.*
 import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.models.MarkerModel
+import com.eteam.epotreba.domain.usecase.CommitMarkerUseCase
 import com.eteam.epotreba.domain.usecase.DeleteMarkerUseCase
 import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
 import com.eteam.epotreba.domain.usecase.UpdateMarkerUseCase
@@ -18,6 +19,10 @@ class MainViewModel : ViewModel() {
     val currentUser = FirebaseAuth.getInstance().currentUser
 
     lateinit var passMarker: MarkerModel
+
+    private val commitMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        CommitMarkerUseCase(repository = MarkerRepository())
+    }
 
     private val getMarkersUseCase by lazy(LazyThreadSafetyMode.NONE) {
         GetMarkersUseCase(repository = MarkerRepository())
@@ -58,5 +63,11 @@ class MainViewModel : ViewModel() {
         return updateMarkerUseCase.execute(marker)
     }
 
+    suspend fun commitMarker( rating: Double){
+        passMarker.votes += 1
+        passMarker.sumRate += rating
+        updateMarker(passMarker)
+        commitMarkerUseCase.execute(passMarker.id, currentUser!!.uid)
+    }
 
 }

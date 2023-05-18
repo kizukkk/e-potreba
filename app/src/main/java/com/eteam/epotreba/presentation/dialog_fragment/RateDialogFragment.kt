@@ -22,10 +22,6 @@ class RateDialogFragment : DialogFragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
 
-    private val commitMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        CommitMarkerUseCase(repository = MarkerRepository())
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,19 +33,11 @@ class RateDialogFragment : DialogFragment() {
         val submit = view.findViewById<Button>(R.id.but_sub_rate)
 
         submit.setOnClickListener{
-            val marker = viewModel.passMarker
-
-            marker.votes += 1
-            marker.sumRate += rate.rating
-            viewModel.updateMarker(marker)
-
             lifecycleScope.launch {
-                commitMarkerUseCase.execute(marker.id, viewModel.currentUser!!.uid)
+                viewModel.commitMarker(rate.rating.toDouble())
             }
-
             super.dismiss()
         }
-
 
         return view
     }
