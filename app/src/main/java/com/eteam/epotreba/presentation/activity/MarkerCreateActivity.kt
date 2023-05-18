@@ -31,8 +31,10 @@ class MarkerCreateActivity : AppCompatActivity() {
             val about: String = binding.aboutField.text.toString();
             val lat: Double = binding.latField.text.toString().toDouble();
             val lng: Double = binding.lngField.text.toString().toDouble();
+            val price: Double = binding.priceField.text.toString().toDouble();
             val marker = MarkerModel(
-                title,about, LatLng(lat,lng),0.0,uid.toString())
+                title,about, LatLng(lat,lng),0.0,uid.toString(),price)
+
 
             saveMarkerUseCase.execute(marker)
 

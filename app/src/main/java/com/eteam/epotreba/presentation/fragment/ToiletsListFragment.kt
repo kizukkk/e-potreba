@@ -10,11 +10,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
-import com.eteam.epotreba.databinding.FragmentNearBinding
 import com.eteam.epotreba.databinding.FragmentToletsListBinding
 import com.eteam.epotreba.domain.adapter.MarkerAdapter
 import com.eteam.epotreba.domain.models.MarkerModel
-import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
 import com.eteam.epotreba.presentation.viewModel.MainViewModel
 
 class ToiletsListFragment
@@ -50,7 +48,9 @@ class ToiletsListFragment
 
                 val transaction = activity?.supportFragmentManager?.beginTransaction()
                 if(transaction != null){
-                    transaction.replace(R.id.fragmentContainerView, DetailFragment())
+                    transaction.add(R.id.fragmentContainerView, DetailFragment())
+                    transaction.addToBackStack(null)
+
                     transaction.commit()
                 }
             }
@@ -60,3 +60,4 @@ class ToiletsListFragment
         return binding.root
     }
 }
+

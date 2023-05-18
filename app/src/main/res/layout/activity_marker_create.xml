@@ -61,6 +61,18 @@
         app:layout_constraintTop_toBottomOf="@+id/latField" />
 
     <EditText
+        android:id="@+id/priceField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-54dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/aboutField" />
+
+    <EditText
         android:id="@+id/aboutField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,6 +128,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
     <Button
         android:id="@+id/createButton"
         android:layout_width="121dp"
@@ -124,6 +147,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aboutField"
-        app:layout_constraintVertical_bias="0.06999999" />
+        app:layout_constraintTop_toBottomOf="@+id/priceField"
+        app:layout_constraintVertical_bias="0.060000002" />
 </androidx.constraintlayout.widget.ConstraintLayout>
