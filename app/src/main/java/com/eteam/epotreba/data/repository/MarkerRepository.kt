@@ -84,6 +84,7 @@ class MarkerRepository() {
                         userId = result.data?.get("userId").toString(),
                         votes = result.data?.get("votes").toString().toInt(),
                         price = result.data?.get("price").toString().toDouble()
+
                     )
                     markerList.add(item)
                 }

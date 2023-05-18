@@ -50,6 +50,7 @@ class ToiletsListFragment
                 if(transaction != null){
                     transaction.add(R.id.fragmentContainerView, DetailFragment())
                     transaction.addToBackStack(null)
+
                     transaction.commit()
                 }
             }
@@ -59,3 +60,4 @@ class ToiletsListFragment
         return binding.root
     }
 }
+

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import com.eteam.epotreba.R
 import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.usecase.VoteContainsMarkerUseCase

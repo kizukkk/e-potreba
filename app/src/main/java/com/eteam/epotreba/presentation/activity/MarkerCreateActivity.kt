@@ -35,6 +35,7 @@ class MarkerCreateActivity : AppCompatActivity() {
             val marker = MarkerModel(
                 title,about, LatLng(lat,lng),0.0,uid.toString(),price)
 
+
             saveMarkerUseCase.execute(marker)
 
             Toast.makeText(this, "Успішно додано!", Toast.LENGTH_LONG).show()

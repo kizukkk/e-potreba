@@ -64,9 +64,6 @@ class ProfileFragment : Fragment() {
         recycler.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         recycler.adapter = adapter
 
-
-
-
         addMarkerButton.setOnClickListener {
             activity?.let {
                 val intent = Intent(it, MarkerCreateActivity::class.java)
@@ -104,6 +101,7 @@ class ProfileFragment : Fragment() {
             }
 
         })
+
 
         return view
     }

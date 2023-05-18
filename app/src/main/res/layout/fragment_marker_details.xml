@@ -214,5 +214,4 @@
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:srcCompat="@drawable/ic_icon_star2" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
