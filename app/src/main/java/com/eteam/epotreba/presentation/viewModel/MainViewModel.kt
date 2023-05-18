@@ -3,10 +3,7 @@ package com.eteam.epotreba.presentation.viewModel
 import androidx.lifecycle.*
 import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.models.MarkerModel
-import com.eteam.epotreba.domain.usecase.CommitMarkerUseCase
-import com.eteam.epotreba.domain.usecase.DeleteMarkerUseCase
-import com.eteam.epotreba.domain.usecase.GetMarkersUseCase
-import com.eteam.epotreba.domain.usecase.UpdateMarkerUseCase
+import com.eteam.epotreba.domain.usecase.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
@@ -35,6 +32,11 @@ class MainViewModel : ViewModel() {
     private val updateMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
         UpdateMarkerUseCase(repository = MarkerRepository())
     }
+
+    private val voteContainsMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        VoteContainsMarkerUseCase(repository = MarkerRepository())
+    }
+
     init {
         viewModelScope.launch {
             updateList()
@@ -54,7 +56,6 @@ class MainViewModel : ViewModel() {
         deleteMarkerUseCase.execute(marker.id)
     }
 
-
     fun passMarkerToFragment(marker: MarkerModel){
         passMarker = marker
     }
@@ -68,6 +69,10 @@ class MainViewModel : ViewModel() {
         passMarker.sumRate += rating
         updateMarker(passMarker)
         commitMarkerUseCase.execute(passMarker.id, currentUser!!.uid)
+    }
+
+    suspend fun checkVoteMarker():Boolean{
+        return voteContainsMarkerUseCase.execute(passMarker.id, currentUser!!.uid)
     }
 
 }
