@@ -34,6 +34,7 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
         val priceTab = view.findViewById<FrameLayout>(R.id.price_item)
         val price = view.findViewById<TextView>(R.id.price_marker)
         val voteButton = view.findViewById<ImageButton>(R.id.but_vote)
+        val editButton = view.findViewById<ImageButton>(R.id.but_edit)
 
         val marker = viewModel.passMarker
         val votes = marker.votes
@@ -41,6 +42,9 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
 
         if (marker.price == 0.0)
             priceTab.visibility = View.GONE
+
+        if (marker.userId != viewModel.currentUser!!.uid)
+            editButton.visibility = View.GONE
 
 
         val df = DecimalFormat("#.#")
