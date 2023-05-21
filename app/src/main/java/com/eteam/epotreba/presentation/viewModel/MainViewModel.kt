@@ -13,6 +13,8 @@ class MainViewModel : ViewModel() {
     var markerList: MutableLiveData<List<MarkerModel>> =
         MutableLiveData<List<MarkerModel>>(emptyList())
 
+    var temp: String = ""
+
     val currentUser = FirebaseAuth.getInstance().currentUser
 
     lateinit var passMarker: MarkerModel
