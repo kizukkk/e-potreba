@@ -4,13 +4,13 @@ import com.google.android.gms.maps.model.LatLng
 
 data class MarkerModel(
     val id: String,
-    val title: String,
-    val about: String,
+    var title: String,
+    var about: String,
     val position: LatLng,
     var sumRate: Double,
     val userId: String,
     var votes: Int,
-    val price: Double
+    var price: Double
     ) {
     constructor(
         title: String,
