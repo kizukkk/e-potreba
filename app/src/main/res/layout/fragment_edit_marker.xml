@@ -128,7 +128,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/edite_title"
+                android:id="@+id/edit_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -137,7 +137,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/edite_address"
+                android:id="@+id/edit_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -146,7 +146,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/edite_about"
+                android:id="@+id/edit_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -154,7 +154,7 @@
                 android:textColor="#1C1B1F" />
 
             <TextView
-                android:id="@+id/edite_price"
+                android:id="@+id/edit_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -169,7 +169,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/edite_title_new"
+                android:id="@+id/edit_title_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -182,7 +182,7 @@
                 android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/edite_address_new"
+                android:id="@+id/edit_address_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -195,7 +195,7 @@
                 android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/edite_about_new"
+                android:id="@+id/edit_about_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -207,7 +207,7 @@
                 android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/edite_price_new"
+                android:id="@+id/edit_price_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -260,7 +260,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.77" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
