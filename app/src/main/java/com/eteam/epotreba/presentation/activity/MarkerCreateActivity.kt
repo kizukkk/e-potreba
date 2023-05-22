@@ -16,7 +16,7 @@ class MarkerCreateActivity : AppCompatActivity() {
     private val uid = FirebaseAuth.getInstance().uid
 
     private val saveMarkerUseCase by lazy(LazyThreadSafetyMode.NONE){
-        SaveMarkerUseCase(repository = MarkerRepository())
+        SaveMarkerUseCase(repository = MarkerRepository(this))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
