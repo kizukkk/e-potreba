@@ -33,12 +33,15 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
         val rate = view.findViewById<TextView>(R.id.score_marker)
         val priceTab = view.findViewById<FrameLayout>(R.id.price_item)
         val price = view.findViewById<TextView>(R.id.price_marker)
+        val address = view.findViewById<TextView>(R.id.address_marker)
+
         val voteButton = view.findViewById<ImageButton>(R.id.but_vote)
         val editButton = view.findViewById<ImageButton>(R.id.but_edit)
 
         val marker = viewModel.passMarker
         val votes = marker.votes
         val sumRate = marker.sumRate
+
 
         if (marker.price == 0.0)
             priceTab.visibility = View.GONE
@@ -52,6 +55,7 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
         title.text = marker.title
         about.text = marker.about
         price.text = marker.price.toString()
+        address.text = marker.address
         rate.text = if(sumRate == 0.0) "0" else
             df.format(sumRate / votes).toString()
 
