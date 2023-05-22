@@ -1,6 +1,8 @@
 package com.eteam.epotreba.data.repository
 
 import android.content.ContentValues.TAG
+import android.content.Context
+import android.location.Geocoder
 import android.util.Log
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.google.android.gms.maps.model.LatLng
@@ -50,7 +52,6 @@ class MarkerRepository(private val context: Context) {
             }
 
         }.await()
-        Log.i(TAG, status.toString())
         return status
     }
     fun update(marker: MarkerModel) {
@@ -86,6 +87,7 @@ class MarkerRepository(private val context: Context) {
                         price = result.data?.get("price").toString().toDouble()
 
                     )
+                    item.address = getAddress(item.position).toString()
                     markerList.add(item)
                 }
             }.await()
@@ -96,5 +98,16 @@ class MarkerRepository(private val context: Context) {
         db.collection("marks").document(id).delete()
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }.await()
+    }
+
+    private fun getAddress(lat: LatLng): String? {
+        val geocoder = Geocoder(context)
+        val list = geocoder.getFromLocation(lat.latitude, lat.longitude,1)
+        val address = list?.get(0)?.getAddressLine(0)
+        val street = address!!.split(", ")[0]
+        val number = address.split(", ")[1]
+        val city = address.split(", ")[2]
+
+        return listOf(street, number, city).joinToString(", ")
     }
 }
