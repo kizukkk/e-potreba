@@ -28,9 +28,12 @@ class EditMarkerDialogFragment(val textView: TextView) : DialogFragment() {
         val view = inflater.inflate(R.layout.dialog_fragment_edit_marker, null)
 
         val submit = view.findViewById<Button>(R.id.but_sub_edit)
+        val editTextView = view.findViewById<EditText>(R.id.editValue)
+        editTextView.setText(viewModel.temp, TextView.BufferType.EDITABLE)
+
 
         submit.setOnClickListener{
-            val value = view.findViewById<EditText>(R.id.editValue).text.toString()
+            val value = editTextView.text.toString()
 
             if(textView.id == R.id.edit_price){
                 try {
