@@ -4,4 +4,21 @@
         <item name="android:windowBackground">@color/backgroundMain</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="Theme.Epotreba.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Epotreba.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.Epotreba.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+<!--        <item name='android:background'>@android:color/transparent</item>-->
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
 </resources>

@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +22,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDrrPkYjDcka0vwMry4-enGtSa9UWt3VoA" />
 
         <activity
             android:name=".presentation.activity.MainActivity"
@@ -43,8 +53,9 @@
             </intent-filter>
         </activity>
 
-
-
+        <activity
+            android:name=".presentation.activity.MarkerCreateActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

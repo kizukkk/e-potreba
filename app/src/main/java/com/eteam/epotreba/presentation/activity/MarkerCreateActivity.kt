@@ -24,7 +24,6 @@ class MarkerCreateActivity : AppCompatActivity() {
         val binding = ActivityMarkerCreateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.createButton.setOnClickListener {
 
             val title: String = binding.titleField.text.toString()
