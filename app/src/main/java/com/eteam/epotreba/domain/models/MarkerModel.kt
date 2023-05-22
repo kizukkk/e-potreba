@@ -10,7 +10,8 @@ data class MarkerModel(
     var sumRate: Double,
     val userId: String,
     var votes: Int,
-    var price: Double
+    var price: Double,
+    var address: String = "невизначено"
     ) {
     constructor(
         title: String,

@@ -1,5 +1,7 @@
 package com.eteam.epotreba.presentation.viewModel
 
+import android.annotation.SuppressLint
+import android.app.Application
 import androidx.lifecycle.*
 import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.models.MarkerModel
@@ -8,7 +10,11 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 
-class MainViewModel : ViewModel() {
+@SuppressLint("StaticFieldLeak")
+class MainViewModel(app: Application) : AndroidViewModel(app) {
+
+    private val context = getApplication<Application>().applicationContext
+    private val repository: MarkerRepository = MarkerRepository(context)
 
     var markerList: MutableLiveData<List<MarkerModel>> =
         MutableLiveData<List<MarkerModel>>(emptyList())
@@ -19,24 +25,25 @@ class MainViewModel : ViewModel() {
 
     lateinit var passMarker: MarkerModel
 
+
     private val commitMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        CommitMarkerUseCase(repository = MarkerRepository())
+        CommitMarkerUseCase(repository = repository)
     }
 
     private val getMarkersUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        GetMarkersUseCase(repository = MarkerRepository())
+        GetMarkersUseCase(repository = repository)
     }
 
     private val deleteMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        DeleteMarkerUseCase(repository = MarkerRepository())
+        DeleteMarkerUseCase(repository = repository)
     }
 
     private val updateMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        UpdateMarkerUseCase(repository = MarkerRepository())
+        UpdateMarkerUseCase(repository = repository)
     }
 
     private val voteContainsMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        VoteContainsMarkerUseCase(repository = MarkerRepository())
+        VoteContainsMarkerUseCase(repository = repository)
     }
 
     init {
