@@ -70,19 +70,20 @@
                 android:layout_height="match_parent"
                 android:gravity="center|start"
                 android:paddingStart="5dp"
+                android:singleLine="true"
                 android:text="Address"
                 android:textColor="#49454F"
-                android:textSize="16sp" />
+                android:textSize="24sp" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/about_marker"
-            android:layout_width="match_parent"
+            android:layout_width="355dp"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             android:textColor="#49454F"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
