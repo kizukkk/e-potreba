@@ -16,7 +16,7 @@ class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val title : TextView = view.findViewById(R.id.marker_title)
         val about : TextView = view.findViewById(R.id.marker_about)
-        val pos : TextView = view.findViewById(R.id.marker_pos)
+        val pos : TextView = view.findViewById(R.id.marker_address)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,7 +28,7 @@ class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = markerList[position].title
         holder.about.text = markerList[position].about
-        holder.pos.text = markerList[position].position.toString()
+        holder.pos.text = markerList[position].address
 
         holder.itemView.setOnClickListener {
             if (onClickListener != null) {
