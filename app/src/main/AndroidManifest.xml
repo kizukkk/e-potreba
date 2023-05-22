@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,6 +28,22 @@
 
         <activity
             android:name=".presentation.activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Epotreba">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.MarkerCreateActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.ProfileCreateActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".presentation.activity.SignInActivity"
             android:exported="true"
             android:theme="@style/Theme.Epotreba">
             <intent-filter>

@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
 import com.eteam.epotreba.domain.models.MarkerModel
 
-class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
+class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
 
     private var markerList = emptyList<MarkerModel>()
+
     private var onClickListener: OnClickListener? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
