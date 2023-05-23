@@ -101,9 +101,7 @@ class MarkerRepository(private val context: Context) {
         val list = geocoder.getFromLocation(lat.latitude, lat.longitude, 1)
         val address = list?.get(0)?.getAddressLine(0)
 
-        var street = ""
-        var number = ""
-        var city = ""
+        var street = ""; var number = ""; var city = ""
 
         try {
             street = address?.split(", ")?.get(0) ?: ""
