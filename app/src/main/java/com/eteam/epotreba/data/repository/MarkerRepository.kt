@@ -14,7 +14,6 @@ import java.lang.Exception
 class MarkerRepository(private val context: Context) {
     private val db = Firebase.firestore
 
-
     suspend fun commitMarker(id: String, uid: String) {
         val documentRef = db.collection("commit").document(uid)
         documentRef.get().addOnSuccessListener { result ->
@@ -34,11 +33,10 @@ class MarkerRepository(private val context: Context) {
         }.await()
     }
 
-
     suspend fun voteContains(id: String, uid: String): Boolean {
         val documentRef = db.collection("commit").document(uid)
 
-        var status: Boolean = true
+        var status = true
 
         documentRef.get().addOnSuccessListener { result ->
 
@@ -52,11 +50,11 @@ class MarkerRepository(private val context: Context) {
         return status
     }
 
-    fun update(marker: MarkerModel) {
+    fun updateData(marker: MarkerModel) {
         db.collection("marks").document(marker.id).set(marker)
     }
 
-    fun save(marker: MarkerModel) {
+    fun saveData(marker: MarkerModel) {
         db.collection("marks").add(marker)
             .addOnSuccessListener { Log.d("DB-Context", "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w("DB-Context", "Error writing document", e) }
@@ -96,7 +94,7 @@ class MarkerRepository(private val context: Context) {
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }.await()
     }
 
-    private fun getAddress(lat: LatLng): String? {
+    private fun getAddress(lat: LatLng): String {
         val geocoder = Geocoder(context)
         val list = geocoder.getFromLocation(lat.latitude, lat.longitude, 1)
         val address = list?.get(0)?.getAddressLine(0)
