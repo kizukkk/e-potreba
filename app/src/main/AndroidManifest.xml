@@ -54,8 +54,11 @@
         </activity>
 
         <activity
-            android:name=".presentation.activity.MarkerCreateActivity"
-            android:exported="true" />
+            android:name=".presentation.activity.LocationGrantNotificationActivity"
+            android:exported="true">
+        </activity>
+
+
     </application>
 
 </manifest>

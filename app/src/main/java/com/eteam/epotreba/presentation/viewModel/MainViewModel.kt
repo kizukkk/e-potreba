@@ -1,13 +1,23 @@
 package com.eteam.epotreba.presentation.viewModel
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
+import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.*
 import com.eteam.epotreba.data.repository.MarkerRepository
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.eteam.epotreba.domain.usecase.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 
 @SuppressLint("StaticFieldLeak")
@@ -15,6 +25,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     private val context = getApplication<Application>().applicationContext
     private val repository: MarkerRepository = MarkerRepository(context)
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
 
     var markerList: MutableLiveData<List<MarkerModel>> =
         MutableLiveData<List<MarkerModel>>(emptyList())
@@ -58,6 +71,11 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     suspend fun updateList(){
         val update = getMarkers()
+
+        for(marker in update){
+            marker.distance = getDistance(marker.position)
+        }
+
         markerList.postValue(update)
     }
 
@@ -82,6 +100,38 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     suspend fun checkVoteMarker():Boolean{
         return voteContainsMarkerUseCase.execute(passMarker.id, currentUser!!.uid)
+    }
+
+    private suspend fun getDistance(lat: LatLng): Double {
+        var dist = .0
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
+
+        val markerLocation = Location(LocationManager.GPS_PROVIDER)
+        markerLocation.latitude = lat.latitude; markerLocation.longitude = lat.longitude;
+
+
+        if (ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Log.wtf("Location Exception", "don't allow define location")
+            return .0
+        }
+
+        fusedLocationClient.lastLocation.addOnCompleteListener { task ->
+            val location: Location? = task.result
+            if (location != null) {
+                dist = location.distanceTo(markerLocation).toDouble()
+            }
+        }.await()
+
+
+        return dist
     }
 
 }
