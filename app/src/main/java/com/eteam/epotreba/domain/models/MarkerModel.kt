@@ -1,6 +1,7 @@
 package com.eteam.epotreba.domain.models
 
 import com.google.android.gms.maps.model.LatLng
+import java.text.DecimalFormat
 
 data class MarkerModel(
     val id: String,
@@ -31,6 +32,14 @@ data class MarkerModel(
         } else {
             "${distance.toInt()} м"
         }
+    }
+
+    fun getScore(): Double {
+        val df = DecimalFormat("#.#")
+        return if(sumRate == 0.0)
+            sumRate
+        else
+            df.format(sumRate / votes).toDouble()
     }
 
 }
