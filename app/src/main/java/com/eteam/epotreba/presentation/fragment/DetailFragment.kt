@@ -98,4 +98,6 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
         return view
     }
 
+
+
 }
