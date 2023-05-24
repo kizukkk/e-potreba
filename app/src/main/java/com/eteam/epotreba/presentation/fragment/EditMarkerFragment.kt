@@ -46,7 +46,7 @@ class EditMarkerFragment : Fragment(R.layout.fragment_edit_marker) {
         title.text = marker.title
         about.text = marker.about
         price.text = marker.price.toString()
-        address.text = marker.position.toString()
+        address.text = marker.address
 
 
         title.setOnClickListener {
