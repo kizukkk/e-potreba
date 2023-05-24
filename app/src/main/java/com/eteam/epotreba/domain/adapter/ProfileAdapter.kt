@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
@@ -15,10 +16,10 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
     private var onClickListener: OnClickListener? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val title : TextView = view.findViewById(R.id.marker_title)
-        val about : TextView = view.findViewById(R.id.marker_about)
-        val pos : TextView = view.findViewById(R.id.marker_address)
-        val dist : TextView = view.findViewById(R.id.marker_dist)
+        val score: TextView = view.findViewById(R.id.marker_score)
+        val pos: TextView = view.findViewById(R.id.marker_address)
+        val dist: TextView = view.findViewById(R.id.marker_dist)
+        val priceIcon: ImageView = view.findViewById(R.id.marker_price_icon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,8 +29,14 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = markerList[position].title
-        holder.about.text = markerList[position].about
+        if(markerList[position].price == 0.0){
+            holder.priceIcon.visibility = View.INVISIBLE
+        }
+
+        val scoreString = if (markerList[position].getScore() == 0.0) "0/5" else
+            "${"%.1f".format(markerList[position].getScore())}/5"
+
+        holder.score.text = scoreString
         holder.pos.text = markerList[position].address
         holder.dist.text = markerList[position].convertDistance()
 
