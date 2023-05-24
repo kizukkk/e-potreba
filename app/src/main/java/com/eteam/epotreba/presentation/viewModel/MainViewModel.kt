@@ -32,6 +32,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     var markerList: MutableLiveData<List<MarkerModel>> =
         MutableLiveData<List<MarkerModel>>(emptyList())
 
+    var favoriteList: MutableLiveData<List<String>> =
+        MutableLiveData<List<String>>(emptyList())
+
     var temp: String = ""
 
     val currentUser = FirebaseAuth.getInstance().currentUser
@@ -59,6 +62,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         VoteContainsMarkerUseCase(repository = repository)
     }
 
+    private val favoriteMarkerUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        FavoriteMarkerUseCase(repository = repository)
+    }
+
     init {
         viewModelScope.launch {
             updateList()
@@ -69,36 +76,36 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         return getMarkersUseCase.execute()
     }
 
-    suspend fun updateList(){
+    suspend fun updateList() {
         val update = getMarkers()
-
-        for(marker in update){
+        favoriteList.postValue(getFavorite())
+        for (marker in update) {
             marker.distance = getDistance(marker.position)
         }
 
         markerList.postValue(update)
     }
 
-    suspend fun delete(marker: MarkerModel){
+    suspend fun delete(marker: MarkerModel) {
         deleteMarkerUseCase.execute(marker.id)
     }
 
-    fun passMarkerToFragment(marker: MarkerModel){
+    fun passMarkerToFragment(marker: MarkerModel) {
         passMarker = marker
     }
 
-    fun updateMarker(marker: MarkerModel){
+    fun updateMarker(marker: MarkerModel) {
         return updateMarkerUseCase.execute(marker)
     }
 
-    suspend fun commitMarker( rating: Double){
+    suspend fun commitMarker(rating: Double) {
         passMarker.votes += 1
         passMarker.sumRate += rating
         updateMarker(passMarker)
         commitMarkerUseCase.execute(passMarker.id, currentUser!!.uid)
     }
 
-    suspend fun checkVoteMarker():Boolean{
+    suspend fun checkVoteMarker(): Boolean {
         return voteContainsMarkerUseCase.execute(passMarker.id, currentUser!!.uid)
     }
 
@@ -132,6 +139,26 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
 
         return dist
+    }
+
+    fun saveToFavorite() {
+        favoriteMarkerUseCase.add(passMarker.id, currentUser!!.uid)
+        viewModelScope.launch {
+            favoriteList.value = getFavorite()
+        }
+    }
+
+    fun deleteFromFavorite() {
+        favoriteMarkerUseCase.delete(passMarker.id, currentUser!!.uid)
+        viewModelScope.launch {
+            favoriteList.value = getFavorite()
+        }
+
+
+    }
+
+    private suspend fun getFavorite(): List<String> {
+        return favoriteMarkerUseCase.get(currentUser!!.uid)
     }
 
 }

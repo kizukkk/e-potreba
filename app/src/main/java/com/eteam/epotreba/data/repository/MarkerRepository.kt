@@ -17,7 +17,6 @@ class MarkerRepository(private val context: Context) {
     suspend fun commitMarker(id: String, uid: String) {
         val documentRef = db.collection("commit").document(uid)
         documentRef.get().addOnSuccessListener { result ->
-
             if (result.exists()) {
                 val list = result.get("markers") as ArrayList<String>
 
@@ -109,7 +108,52 @@ class MarkerRepository(private val context: Context) {
             Log.wtf(exception.toString(), "some of address property is null")
         }
 
-
         return listOf(street, number, city).joinToString(", ")
     }
+
+    fun saveToFavorite(id: String, uid: String){
+        val documentRef = db.collection("favorite").document(uid)
+
+        documentRef.get().addOnSuccessListener { result ->
+            if (result.exists()) {
+                val list = result.get("markers") as ArrayList<String>
+
+                list.add(id)
+                documentRef.update("markers", list)
+            } else {
+                val list = object {
+                    val markers = arrayListOf(id)
+                }
+                db.collection("favorite").document(uid).set(list)
+
+            }
+        }
+    }
+
+    fun deleteFromFavorite(id: String, uid: String){
+        val documentRef = db.collection("favorite").document(uid)
+
+        documentRef.get().addOnSuccessListener { result ->
+            if (result.exists()) {
+                val list = result.get("markers") as ArrayList<String>
+
+                list.remove(id)
+                documentRef.update("markers", list)
+            }
+        }
+    }
+
+    suspend fun getFavorite(uid: String): List<String>{
+        var favList = emptyList<String>()
+        val documentRef = db.collection("favorite").document(uid)
+
+        documentRef.get().addOnSuccessListener { result ->
+            if (result.exists()) {
+                favList = result.get("markers") as ArrayList<String>
+            }
+        }.await()
+
+        return favList
+    }
+
 }

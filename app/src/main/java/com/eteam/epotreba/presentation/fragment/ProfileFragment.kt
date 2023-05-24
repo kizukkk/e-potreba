@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
@@ -23,6 +24,7 @@ import com.eteam.epotreba.presentation.viewModel.MainViewModel
 import com.eteam.epotreba.presentation.viewModel.ProfileViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
 
 
 class ProfileFragment : Fragment() {
@@ -58,7 +60,9 @@ class ProfileFragment : Fragment() {
         nameInfo.text = mainViewModel.currentUser?.displayName
         avatar.text = mainViewModel.currentUser?.displayName!!.first().toString()
 
-        switchList(profileViewModel.selectedList)
+        lifecycleScope.launch {
+            switchList(profileViewModel.selectedList)
+        }
 
         val recycler = view.findViewById<RecyclerView>(R.id.rv_marker_list_profile)
         recycler.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
@@ -71,7 +75,7 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        signOut.setOnClickListener{
+        signOut.setOnClickListener {
             Firebase.auth.signOut()
             startActivity(Intent(activity, SignInActivity::class.java))
             activity?.finish()
@@ -79,12 +83,16 @@ class ProfileFragment : Fragment() {
 
         owned.setOnClickListener {
             profileViewModel.selectedList = 0
-            switchList(0)
+            lifecycleScope.launch {
+                switchList(0)
+            }
         }
 
         favorite.setOnClickListener {
             profileViewModel.selectedList = 1
-            switchList(1)
+            lifecycleScope.launch {
+                switchList(1)
+            }
         }
 
         adapter.setOnClickListener(object : ProfileAdapter.OnClickListener {
@@ -93,7 +101,7 @@ class ProfileFragment : Fragment() {
                 mainViewModel.passMarkerToFragment(model)
 
                 val transaction = activity?.supportFragmentManager?.beginTransaction()
-                if(transaction != null){
+                if (transaction != null) {
                     transaction.add(R.id.fragmentContainerView, DetailFragment())
                     transaction.addToBackStack(null)
                     transaction.commit()
@@ -107,7 +115,7 @@ class ProfileFragment : Fragment() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun switchList(number: Int){
+    private suspend fun switchList(number: Int) {
         when (number) {
             1 -> {
                 adapter.submit(profileViewModel.getFavoriteMarkers(mainViewModel.markerList))
@@ -122,7 +130,6 @@ class ProfileFragment : Fragment() {
             }
         }
     }
-
 
 
 }
