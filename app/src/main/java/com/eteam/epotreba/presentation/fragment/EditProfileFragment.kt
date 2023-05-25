@@ -9,27 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.eteam.epotreba.R
-import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
+import com.eteam.epotreba.domain.services.PhoneAuthServices
+import com.eteam.epotreba.presentation.activity.MainActivity
+import com.eteam.epotreba.presentation.viewModel.ProfileViewModel
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.userProfileChangeRequest
-import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
 
     private val user = FirebaseAuth.getInstance().currentUser
-    private val auth = FirebaseAuth.getInstance()
+    private var auth = FirebaseAuth.getInstance()
+    private lateinit var phoneAuth: PhoneAuthServices
 
     private lateinit var name: TextView
     private lateinit var phone: TextView
     private lateinit var code: TextView
     private lateinit var codeField: TextView
-
-    lateinit var _verificationId: String
-    lateinit var _resendToken: PhoneAuthProvider.ForceResendingToken
 
 
     @SuppressLint("MissingInflatedId")
@@ -40,6 +37,8 @@ class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
     ): View {
 
         val view = inflater.inflate(R.layout.fragment_profile_edit, container, false)
+
+        phoneAuth = PhoneAuthServices(requireContext(), auth)
 
         name = view.findViewById(R.id.editProfile_name)
         phone = view.findViewById(R.id.editProfile_phone)
@@ -64,7 +63,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
                 code.visibility = View.VISIBLE
                 codeField.visibility = View.VISIBLE
                 Toast.makeText(activity, "Введіть код підтвердження!", Toast.LENGTH_SHORT).show()
-                phoneAuth(phone.text.toString())
+                phoneAuth!!.phoneAuth(phone.text.toString())
                 return@setOnClickListener
             }
 
@@ -111,60 +110,9 @@ class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
 
     }
 
-    private var callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-        override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-            Log.d(ContentValues.TAG, "onVerificationCompleted:$credential")
-        }
-
-        override fun onVerificationFailed(e: FirebaseException) {
-            Log.w(ContentValues.TAG, "onVerificationFailed", e)
-
-            when (e) {
-                is FirebaseAuthInvalidCredentialsException -> {
-                    Toast.makeText(
-                        activity,
-                        "Помилковий запит, спробуйте ще раз!!",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-                is FirebaseTooManyRequestsException -> {
-                    Toast.makeText(activity, "Досягнуто ліміту СМС на проєкт!", Toast.LENGTH_LONG)
-                        .show()
-                }
-                is FirebaseAuthMissingActivityForRecaptchaException -> {
-                    // reCAPTCHA verification attempted with null Activity
-                }
-            }
-
-        }
-
-        override fun onCodeSent(
-            verificationId: String,
-            token: PhoneAuthProvider.ForceResendingToken,
-        ) {
-            Log.d(ContentValues.TAG, "onCodeSent:$verificationId")
-            _verificationId = verificationId
-            _resendToken = token
-        }
-    }
-
-    private fun phoneAuth(phone: String) {
-        val options = activity?.let {
-            PhoneAuthOptions.newBuilder(auth)
-                .setPhoneNumber(phone) // Phone number to verify
-                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                .setActivity(it) // Activity (for callback binding)
-                .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
-                .build()
-        }
-        if (options != null) {
-            PhoneAuthProvider.verifyPhoneNumber(options)
-        }
-    }
 
     private fun confirmPhoneAuth(code: String) {
-        val credential = PhoneAuthProvider.getCredential(_verificationId, code)
+        val credential = PhoneAuthProvider.getCredential(phoneAuth!!._verificationId, code)
 
         user!!.updatePhoneNumber(credential)
             .addOnCompleteListener { task ->

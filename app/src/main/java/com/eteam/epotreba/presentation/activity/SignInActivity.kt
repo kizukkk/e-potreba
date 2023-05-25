@@ -7,105 +7,49 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.eteam.epotreba.databinding.ActivitySignInBinding
-import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
+import com.eteam.epotreba.domain.services.PhoneAuthServices
 import com.google.firebase.auth.*
-import java.util.concurrent.TimeUnit
 
 
-class SignInActivity : AppCompatActivity(){
+class SignInActivity : AppCompatActivity() {
 
     private var auth = FirebaseAuth.getInstance()
-    lateinit var _verificationId: String
-    lateinit var _resendToken: PhoneAuthProvider.ForceResendingToken
-
-    private var callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-        override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-            Log.d(TAG, "onVerificationCompleted:$credential")
-            goToMain()
-        }
-
-        override fun onVerificationFailed(e: FirebaseException) {
-            Log.w(TAG, "onVerificationFailed", e)
-
-            when (e) {
-                is FirebaseAuthInvalidCredentialsException -> {
-                    Toast.makeText(this@SignInActivity, "Помилковий запит, спробуйте ще раз!!",Toast.LENGTH_LONG).show()
-                }
-                is FirebaseTooManyRequestsException -> {
-                    Toast.makeText(this@SignInActivity, "Досягнуто ліміту СМС на проєкт!",Toast.LENGTH_LONG).show()
-                }
-                is FirebaseAuthMissingActivityForRecaptchaException -> {
-                    // reCAPTCHA verification attempted with null Activity
-                }
-            }
-
-        }
-
-        override fun onCodeSent(
-            verificationId: String,
-            token: PhoneAuthProvider.ForceResendingToken,
-        ) {
-            Log.d(TAG, "onCodeSent:$verificationId")
-
-            // Save verification ID and resending token so we can use them later
-            _verificationId = verificationId
-            _resendToken = token
-        }
-    }
-
+    private val phoneAuth: PhoneAuthServices = PhoneAuthServices(this, auth)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-        if(auth.currentUser != null) {
+        if (auth.currentUser != null) {
             goToMain()
         }
 
         auth.setLanguageCode("ua")
 
-        binding.butSendCode.setOnClickListener{
+        binding.butSendCode.setOnClickListener {
             val phone = binding.phoneField.text.toString()
-            phoneAuth(phone)
+            phoneAuth.phoneAuth(phone)
         }
 
         binding.butConfirm.setOnClickListener {
             val code = binding.codeField.text.toString()
             try {
                 confirmPhoneAuth(code)
-            }catch (e: java.lang.Exception){
-                Toast.makeText(this, "Спочатку надішліть КОД!",Toast.LENGTH_LONG).show()
+            } catch (e: java.lang.Exception) {
+                Toast.makeText(this, "Спочатку надішліть КОД!", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
         }
     }
 
 
-    private fun confirmPhoneAuth(code: String){
-        if(_verificationId == null || _resendToken == null)
+    private fun confirmPhoneAuth(code: String) {
+        if (phoneAuth._verificationId == null || phoneAuth._resendToken == null)
             throw Exception("Don't sent CODE!")
 
-        val credential = PhoneAuthProvider.getCredential(_verificationId, code)
+        val credential = PhoneAuthProvider.getCredential(phoneAuth._verificationId, code)
 
-        signInWithPhoneAuthCredential(credential)
-    }
-
-    private fun phoneAuth(phone: String){
-        val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phone) // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(this) // Activity (for callback binding)
-            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-    }
-
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -115,22 +59,20 @@ class SignInActivity : AppCompatActivity(){
 
                     Log.w(TAG, "signInWithCredential: failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        Toast.makeText(this, "Не вірний код!",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Не вірний код!", Toast.LENGTH_LONG).show()
                     }
                 }
             }
     }
 
-    private fun goToMain(){
-        if (auth.currentUser?.displayName == null){
+
+    private fun goToMain() {
+        if (auth.currentUser?.displayName == null) {
             startActivity(Intent(this, ProfileCreateActivity::class.java))
-        }
-        else{
+        } else {
             startActivity(Intent(this, MainActivity::class.java))
         }
         finish()
     }
-
-
 }
 
