@@ -1,4 +1,5 @@
 package com.eteam.epotreba.domain.adapter
+
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
 import com.eteam.epotreba.domain.models.MarkerModel
 
-open class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
+class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
 
     private var markerList = emptyList<MarkerModel>()
     private var onClickListener: OnClickListener? = null
@@ -27,7 +28,9 @@ open class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         if(markerList[position].price == 0.0){
             holder.priceIcon.visibility = View.INVISIBLE
         }
@@ -38,6 +41,7 @@ open class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
         holder.score.text = scoreString
         holder.pos.text = markerList[position].address
         holder.dist.text = markerList[position].convertDistance()
+
 
         holder.itemView.setOnClickListener {
             if (onClickListener != null) {
