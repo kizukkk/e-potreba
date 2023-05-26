@@ -37,7 +37,6 @@ class ProfileFragment : Fragment() {
     private val adapter = MarkerAdapter()
 
     lateinit var favorite: Button
-
     lateinit var owned: Button
 
 
