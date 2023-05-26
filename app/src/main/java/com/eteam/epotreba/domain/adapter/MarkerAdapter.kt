@@ -39,7 +39,7 @@ class MarkerAdapter : RecyclerView.Adapter<MarkerAdapter.ViewHolder>() {
             "${"%.1f".format(markerList[position].getScore())}/5"
 
         holder.score.text = scoreString
-        holder.pos.text = markerList[position].address
+        holder.pos.text = markerList[position].title
         holder.dist.text = markerList[position].convertDistance()
 
 
