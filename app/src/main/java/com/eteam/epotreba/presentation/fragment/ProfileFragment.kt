@@ -17,7 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
-import com.eteam.epotreba.domain.adapter.ProfileAdapter
+import com.eteam.epotreba.domain.adapter.MarkerAdapter
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.eteam.epotreba.presentation.activity.MarkerCreateActivity
 import com.eteam.epotreba.presentation.activity.SignInActivity
@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
 
     private val profileViewModel: ProfileViewModel by viewModels()
 
-    private val adapter = ProfileAdapter()
+    private val adapter = MarkerAdapter()
 
     lateinit var favorite: Button
 
@@ -97,7 +97,7 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        adapter.setOnClickListener(object : ProfileAdapter.OnClickListener {
+        adapter.setOnClickListener(object : MarkerAdapter.OnClickListener {
             override fun onClick(position: Int, model: MarkerModel) {
 
                 mainViewModel.passMarkerToFragment(model)
