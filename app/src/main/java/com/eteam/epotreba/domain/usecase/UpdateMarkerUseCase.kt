@@ -6,7 +6,7 @@ import com.eteam.epotreba.domain.models.MarkerModel
 class UpdateMarkerUseCase(val repository: MarkerRepository) {
 
     fun execute(mark: MarkerModel){
-        repository.update(marker = mark)
+        repository.updateData(marker = mark)
     }
 
 }

@@ -2,10 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Always include this permission -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- Include only if your app benefits from precise location access. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 
@@ -17,7 +14,9 @@
         android:label="єПотрeбa"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Epotreba"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:screenOrientation="sensorPortrait">
+
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -29,23 +28,27 @@
         <activity
             android:name=".presentation.activity.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Epotreba">
+            android:theme="@style/Theme.Epotreba"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".presentation.activity.MarkerCreateActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".presentation.activity.ProfileCreateActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".presentation.activity.SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.Epotreba">
+            android:theme="@style/Theme.Epotreba"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,8 +57,12 @@
         </activity>
 
         <activity
-            android:name=".presentation.activity.MarkerCreateActivity"
-            android:exported="true" />
+            android:name=".presentation.activity.LocationGrantNotificationActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+
     </application>
 
 </manifest>

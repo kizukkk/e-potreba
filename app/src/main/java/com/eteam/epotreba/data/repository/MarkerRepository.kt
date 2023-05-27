@@ -14,11 +14,9 @@ import java.lang.Exception
 class MarkerRepository(private val context: Context) {
     private val db = Firebase.firestore
 
-
     suspend fun commitMarker(id: String, uid: String) {
         val documentRef = db.collection("commit").document(uid)
         documentRef.get().addOnSuccessListener { result ->
-
             if (result.exists()) {
                 val list = result.get("markers") as ArrayList<String>
 
@@ -34,11 +32,10 @@ class MarkerRepository(private val context: Context) {
         }.await()
     }
 
-
     suspend fun voteContains(id: String, uid: String): Boolean {
         val documentRef = db.collection("commit").document(uid)
 
-        var status: Boolean = true
+        var status = true
 
         documentRef.get().addOnSuccessListener { result ->
 
@@ -52,11 +49,11 @@ class MarkerRepository(private val context: Context) {
         return status
     }
 
-    fun update(marker: MarkerModel) {
+    fun updateData(marker: MarkerModel) {
         db.collection("marks").document(marker.id).set(marker)
     }
 
-    fun save(marker: MarkerModel) {
+    fun saveData(marker: MarkerModel) {
         db.collection("marks").add(marker)
             .addOnSuccessListener { Log.d("DB-Context", "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w("DB-Context", "Error writing document", e) }
@@ -96,14 +93,12 @@ class MarkerRepository(private val context: Context) {
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }.await()
     }
 
-    private fun getAddress(lat: LatLng): String? {
+    private fun getAddress(lat: LatLng): String {
         val geocoder = Geocoder(context)
         val list = geocoder.getFromLocation(lat.latitude, lat.longitude, 1)
         val address = list?.get(0)?.getAddressLine(0)
 
-        var street = ""
-        var number = ""
-        var city = ""
+        var street = ""; var number = ""; var city = ""
 
         try {
             street = address?.split(", ")?.get(0) ?: ""
@@ -113,7 +108,52 @@ class MarkerRepository(private val context: Context) {
             Log.wtf(exception.toString(), "some of address property is null")
         }
 
-
         return listOf(street, number, city).joinToString(", ")
     }
+
+    fun saveToFavorite(id: String, uid: String){
+        val documentRef = db.collection("favorite").document(uid)
+
+        documentRef.get().addOnSuccessListener { result ->
+            if (result.exists()) {
+                val list = result.get("markers") as ArrayList<String>
+
+                list.add(id)
+                documentRef.update("markers", list)
+            } else {
+                val list = object {
+                    val markers = arrayListOf(id)
+                }
+                db.collection("favorite").document(uid).set(list)
+
+            }
+        }
+    }
+
+    fun deleteFromFavorite(id: String, uid: String){
+        val documentRef = db.collection("favorite").document(uid)
+
+        documentRef.get().addOnSuccessListener { result ->
+            if (result.exists()) {
+                val list = result.get("markers") as ArrayList<String>
+
+                list.remove(id)
+                documentRef.update("markers", list)
+            }
+        }
+    }
+
+    suspend fun getFavorite(uid: String): List<String>{
+        var favList = emptyList<String>()
+        val documentRef = db.collection("favorite").document(uid)
+
+        documentRef.get().addOnSuccessListener { result ->
+            if (result.exists()) {
+                favList = result.get("markers") as ArrayList<String>
+            }
+        }.await()
+
+        return favList
+    }
+
 }

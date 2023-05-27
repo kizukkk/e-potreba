@@ -1,6 +1,7 @@
 package com.eteam.epotreba.presentation.fragment
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +38,10 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
 
         val voteButton = view.findViewById<ImageButton>(R.id.but_vote)
         val editButton = view.findViewById<ImageButton>(R.id.but_edit)
+        val favoriteButton = view.findViewById<ImageView>(R.id.ic_favorite)
+
+        if (viewModel.favoriteList.value!!.contains(viewModel.passMarker.id))
+            favoriteButton.setColorFilter(Color.MAGENTA)
 
         val marker = viewModel.passMarker
         val votes = marker.votes
@@ -79,7 +84,20 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
             }
         }
 
+        favoriteButton.setOnClickListener {
+            if (viewModel.favoriteList.value!!.contains(viewModel.passMarker.id)) {
+                favoriteButton.setColorFilter(Color.BLACK)
+                viewModel.deleteFromFavorite()
+            }
+            else{
+                favoriteButton.setColorFilter(Color.MAGENTA)
+                viewModel.saveToFavorite()
+            }
+        }
+
         return view
     }
+
+
 
 }
