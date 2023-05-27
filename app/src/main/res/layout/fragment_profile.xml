@@ -28,7 +28,7 @@
             android:background="@drawable/avatar_background"
             android:gravity="center"
             android:text="₴"
-            android:textColor="#FFFBFE"
+            android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -43,7 +43,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fullname"
-                android:textColor="#1C1B1F"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -52,7 +51,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="#1C1B1F"
                 android:textSize="16sp"
                 android:textStyle="italic" />
 
@@ -61,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textColor="#1C1B1F" />
+                />
 
         </LinearLayout>
 
@@ -92,8 +90,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00433A43"
+            android:textColor="?colorPrimary"
             android:text="Улюблені"
-            android:textColor="#1C1B1F"
             android:textSize="20sp" />
 
         <Button
@@ -101,8 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00EBC3E9"
+            android:textColor="?colorPrimary"
             android:text="Створені"
-            android:textColor="#1C1B1F"
             android:textSize="20sp" />
     </LinearLayout>
 

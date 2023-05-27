@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F1F8"
-    android:outlineProvider="bounds"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:outlineProvider="bounds">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +29,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Title"
-                android:textColor="#49454F"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -73,7 +71,6 @@
                 android:paddingStart="5dp"
                 android:singleLine="true"
                 android:text="Address"
-                android:textColor="#49454F"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -83,7 +80,6 @@
             android:layout_width="355dp"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-            android:textColor="#49454F"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -122,7 +118,6 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
                         android:text="15"
-                        android:textColor="#49454F"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -158,7 +153,6 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
                         android:text="15"
-                        android:textColor="#49454F"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -209,7 +203,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/star_vote_border"
-        android:outlineAmbientShadowColor="#040303"
         android:padding="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -222,7 +215,6 @@
         android:layout_height="65dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/star_vote_border"
-        android:outlineAmbientShadowColor="#040303"
         android:padding="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"

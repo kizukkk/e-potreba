@@ -16,7 +16,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="єПотрeбa"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Epotreba"
+        android:theme="@style/Base.Theme.Epotreba"
         tools:targetApi="31">
 
         <meta-data
