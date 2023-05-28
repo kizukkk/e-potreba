@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:minWidth="30dp"
-                    app:srcCompat="@drawable/ic_distance" />
+                    app:srcCompat="@drawable/ic_icon_distance" />
 
                 <TextView
                     android:id="@+id/marker_dist"
@@ -106,7 +106,7 @@
                     android:layout_weight="0.7"
                     android:minWidth="20dp"
                     android:minHeight="25dp"
-                    app:srcCompat="@drawable/ic_icon_star2" />
+                    app:srcCompat="@drawable/ic_icon_star" />
 
                 <TextView
                     android:id="@+id/marker_score"

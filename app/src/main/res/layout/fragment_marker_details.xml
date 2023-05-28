@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/border"
+                android:background="@drawable/bg_border_marker_card_info"
                 android:outlineProvider="bounds"
                 android:padding="2.5dp">
 
@@ -133,7 +133,7 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
+                android:background="@drawable/bg_border_marker_card_info"
                 android:outlineProvider="bounds"
                 android:padding="2.5dp">
 
@@ -208,20 +208,20 @@
         android:id="@+id/but_vote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/star_vote_border"
+        android:background="@drawable/bg_marker_details_bottom_buttons"
         android:outlineAmbientShadowColor="#040303"
         android:padding="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:srcCompat="@drawable/ic_icon_star2" />
+        app:srcCompat="@drawable/ic_icon_star" />
 
     <ImageButton
         android:id="@+id/but_edit"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginEnd="4dp"
-        android:background="@drawable/star_vote_border"
+        android:background="@drawable/bg_marker_details_bottom_buttons"
         android:outlineAmbientShadowColor="#040303"
         android:padding="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"

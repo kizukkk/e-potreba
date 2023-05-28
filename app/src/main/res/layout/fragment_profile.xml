@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="0"
-            android:background="@drawable/avatar_background"
+            android:background="@drawable/bg_profile_avatar"
             android:gravity="center"
             android:text="₴"
             android:textColor="#FFFBFE"
@@ -107,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:listitem="@layout/marker_item" />
+        tools:listitem="@layout/marker_list_item" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"

@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:listitem="@layout/marker_item" />
+        tools:listitem="@layout/marker_list_item" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
