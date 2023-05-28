@@ -8,12 +8,12 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingVertical="8dp">
+
 
         <LinearLayout
             android:layout_width="0dp"
@@ -34,7 +34,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:minWidth="30dp"
-                    app:srcCompat="@drawable/ic_icon_marker" />
+                    app:srcCompat="@drawable/ic_icon_marker"
+                    app:tint="?colorPrimary" />
 
                 <TextView
                     android:id="@+id/marker_address"
@@ -60,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:minWidth="30dp"
-                    app:srcCompat="@drawable/ic_distance" />
+                    app:srcCompat="@drawable/ic_distance"
+                    app:tint="?colorSecondary" />
 
                 <TextView
                     android:id="@+id/marker_dist"
@@ -106,17 +108,20 @@
                     android:layout_weight="0.7"
                     android:minWidth="20dp"
                     android:minHeight="25dp"
-                    app:srcCompat="@drawable/ic_icon_star2" />
+                    app:srcCompat="@drawable/ic_icon_star2"
+                    app:tint="?colorTertiary" />
 
                 <TextView
                     android:id="@+id/marker_score"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
+                    android:textAlignment="textEnd"
                     android:minWidth="45dp"
                     android:text="2.7/5"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat" />
             </LinearLayout>
 
         </LinearLayout>

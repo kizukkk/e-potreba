@@ -48,7 +48,7 @@ class ToiletsListFragment
 
                 val transaction = activity?.supportFragmentManager?.beginTransaction()
                 if(transaction != null){
-                    transaction.add(R.id.fragmentContainerView, DetailFragment())
+                    transaction.replace(R.id.fragmentContainerView, DetailFragment())
                     transaction.addToBackStack(null)
 
                     transaction.commit()
