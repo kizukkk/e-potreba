@@ -20,4 +20,5 @@
     <string name="auth_alert_sms_limit">SMS limit has been reached, try again later!</string>
     <string name="other_alert_invalid_format">Incorrect format!</string>
     <string name="fragment_detal_alert_vote">You\'ve already given your rating!</string>
+    <string name="other_address_unidentified">The address is unrecognized</string>
 </resources>

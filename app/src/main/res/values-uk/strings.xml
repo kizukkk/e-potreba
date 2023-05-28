@@ -20,4 +20,5 @@
     <string name="auth_alert_sms_limit">Вичерпаний ліміт СМС, спробуйте пізніше!</string>
     <string name="other_alert_invalid_format">Некоректний формат!</string>
     <string name="fragment_detal_alert_vote">Ви вже виставили оцінку!</string>
+    <string name="other_address_unidentified">Адрес не визначено</string>
 </resources>
