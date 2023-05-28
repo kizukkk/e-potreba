@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bottom_navigation_list_label">List</string>
+    <string name="bottom_navigation_near_label">Near</string>
+    <string name="app_name">E-Potreba</string>
+    <string name="bottom_navigation_profile_label">Profile</string>
+    <string name="fragment_list_title">List of Markers</string>
+    <string name="fragment_profile_favorite">Favorite</string>
+    <string name="fragment_profle_owned">Owned</string>
+    <string name="fragment_profile_edit_title">Profle Settings</string>
+    <string name="fragment_profile_edit_name">Name</string>
+    <string name="fragment_profile_edit_phone">Phone</string>
+    <string name="fragment_profile_edit_save_but">Save</string>
+    <string name="fragment_profile_edit_cancel_but">Cancel</string>
+    <string name="fragment_profile_marker_create_but">Create Marker</string>
+    <string name="fragment_profile_marker_sign_out_but">Sign Out</string>
+    <string name="fragment_profile_edit_okay_alert">Data successfully changed</string>
+    <string name="auth_alert_invalid_code">Wrong code!</string>
+    <string name="auth_alert_invalid_request">Invalid request, please try again</string>
+    <string name="auth_alert_sms_limit">SMS limit has been reached, try again later!</string>
+    <string name="other_alert_invalid_format">Incorrect format!</string>
+    <string name="fragment_detal_alert_vote">You\'ve already given your rating!</string>
+</resources>
