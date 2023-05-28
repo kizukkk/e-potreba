@@ -34,12 +34,6 @@
         </activity>
 
         <activity
-            android:name=".presentation.activity.MarkerCreateActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
             android:name=".presentation.activity.ProfileCreateActivity"
             android:exported="true"
             android:screenOrientation="portrait">
