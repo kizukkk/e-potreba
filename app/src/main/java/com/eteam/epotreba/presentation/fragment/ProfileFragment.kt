@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eteam.epotreba.R
 import com.eteam.epotreba.domain.adapter.MarkerAdapter
 import com.eteam.epotreba.domain.models.MarkerModel
-import com.eteam.epotreba.presentation.activity.MarkerCreateActivity
 import com.eteam.epotreba.presentation.activity.SignInActivity
 import com.eteam.epotreba.presentation.viewModel.MainViewModel
 import com.eteam.epotreba.presentation.viewModel.ProfileViewModel
@@ -71,8 +71,10 @@ class ProfileFragment : Fragment() {
 
         addMarkerButton.setOnClickListener {
             activity?.let {
-                val intent = Intent(it, MarkerCreateActivity::class.java)
-                it.startActivity(intent)
+                it.supportFragmentManager.commit {
+                    replace(R.id.fragmentContainerView, MarkerCreateFragment())
+                    addToBackStack(null)
+                }
             }
         }
 
