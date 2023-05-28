@@ -78,7 +78,7 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
         editButton.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             if(transaction != null){
-                transaction.add(R.id.fragmentContainerView, EditMarkerFragment())
+                transaction.replace(R.id.fragmentContainerView, EditMarkerFragment())
                 transaction.addToBackStack(null)
                 transaction.commit()
             }

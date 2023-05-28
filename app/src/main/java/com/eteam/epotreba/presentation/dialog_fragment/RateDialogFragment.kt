@@ -28,9 +28,11 @@ class RateDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.dialog_fragment_vote, null)
-
         val rate = view.findViewById<RatingBar>(R.id.rate_marker)
         val submit = view.findViewById<Button>(R.id.but_sub_rate)
+
+        dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent);
+
 
         submit.setOnClickListener{
             lifecycleScope.launch {

@@ -1,7 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_border_marker_card_info"
+    android:orientation="vertical"
+    android:padding="22dp">
 
     <TextView
         android:id="@+id/textView9"
@@ -9,7 +12,6 @@
         android:layout_height="wrap_content"
         android:text="Ваша оцінка"
         android:textAlignment="center"
-        android:textColor="#4E5E58"
         android:textSize="24sp" />
 
     <RatingBar
@@ -22,7 +24,6 @@
         android:id="@+id/but_sub_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Залишити оцінку"
-        android:backgroundTint="#EBC3E9"
-        android:textColor="#4E5E58"/>
+        android:text="Залишити оцінку" />
+
 </LinearLayout>

@@ -34,7 +34,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:minWidth="30dp"
-                    app:srcCompat="@drawable/ic_icon_marker" />
+                    app:srcCompat="@drawable/ic_icon_marker"
+                    app:tint="?colorAccent" />
 
                 <TextView
                     android:id="@+id/marker_address"
@@ -60,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:minWidth="30dp"
-                    app:srcCompat="@drawable/ic_icon_distance" />
+                    app:srcCompat="@drawable/ic_icon_distance"
+                    app:tint="?colorPrimary" />
 
                 <TextView
                     android:id="@+id/marker_dist"
@@ -106,7 +108,8 @@
                     android:layout_weight="0.7"
                     android:minWidth="20dp"
                     android:minHeight="25dp"
-                    app:srcCompat="@drawable/ic_icon_star" />
+                    app:srcCompat="@drawable/ic_icon_star"
+                    app:tint="?colorSecondary" />
 
                 <TextView
                     android:id="@+id/marker_score"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".presentation.fragment.ProfileFragment">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"
+        android:gravity="center|start"
         android:orientation="horizontal"
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,8 +29,6 @@
             android:layout_weight="0"
             android:background="@drawable/bg_profile_avatar"
             android:gravity="center"
-            android:text="₴"
-            android:textColor="#FFFBFE"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -36,14 +36,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center|start">
 
             <TextView
                 android:id="@+id/name_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fullname"
-                android:textColor="#1C1B1F"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -51,8 +51,7 @@
                 android:id="@+id/phone_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="#1C1B1F" />
+                android:text="TextView" />
 
         </LinearLayout>
 
@@ -99,13 +98,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_marker_list_profile"
-        android:layout_width="390dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         tools:listitem="@layout/marker_list_item" />
 
@@ -115,7 +113,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="65dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

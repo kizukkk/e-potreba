@@ -40,13 +40,13 @@ class NearFragment : Fragment(R.layout.fragment_near) {
         return view
     }
 
-    private fun showBottomSheet() {
-        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
-        dialog = activity?.let { BottomSheetDialog(it, R.style.BottomSheetDialogTheme) }!!
-        dialog.setContentView(dialogView)
-
-        dialog.show()
-    }
+//    private fun showBottomSheet() {
+//        val dialogView = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
+//        dialog = activity?.let { BottomSheetDialog(it, R.style.BottomSheetDialogTheme) }!!
+//        dialog.setContentView(dialogView)
+//
+//        dialog.show()
+//    }
 
 }
 

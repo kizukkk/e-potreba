@@ -35,7 +35,7 @@ data class MarkerModel(
     }
 
     fun getScore(): Double {
-        val df = DecimalFormat("#.#")
+        val df = DecimalFormat("#,#")
         return if(sumRate == 0.0)
             sumRate
         else
