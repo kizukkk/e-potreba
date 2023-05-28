@@ -1,12 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">E-potreba</string>
-    <string name="action_settings" translatable="false">Settings</string>
-
-    <!-- bottom navigation strings-->
     <string name="bottom_navigation_list_label">Список</string>
     <string name="bottom_navigation_near_label">Поруч</string>
-    <string name="title_activity_maps" translatable="false">MapsActivity</string>
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="app_name">ЄПотреба</string>
     <string name="bottom_navigation_profile_label">Профіль</string>
     <string name="fragment_list_title">Список маркерів</string>
     <string name="fragment_profile_favorite">Улюблені</string>

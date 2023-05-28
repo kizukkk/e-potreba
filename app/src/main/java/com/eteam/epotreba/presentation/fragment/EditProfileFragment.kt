@@ -11,11 +11,8 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.eteam.epotreba.R
 import com.eteam.epotreba.domain.services.PhoneAuthServices
-import com.eteam.epotreba.presentation.activity.MainActivity
-import com.eteam.epotreba.presentation.viewModel.ProfileViewModel
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.userProfileChangeRequest
-import java.util.concurrent.TimeUnit
 
 class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
 
@@ -58,7 +55,6 @@ class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
         }
 
         saveButton.setOnClickListener {
-
             if (phone.text.toString() != user?.phoneNumber && code.visibility == View.GONE) {
                 code.visibility = View.VISIBLE
                 codeField.visibility = View.VISIBLE
@@ -101,7 +97,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
             }
         }
 
-        Toast.makeText(activity, "Дані успішно змінено!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, R.string.fragment_profile_edit_okay_alert, Toast.LENGTH_SHORT).show()
         val transaction = activity?.supportFragmentManager?.beginTransaction()
         if (transaction != null) {
             transaction.replace(R.id.fragmentContainerView, ProfileFragment())
@@ -124,7 +120,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_profile_edit) {
 
                     Log.w(ContentValues.TAG, "updatePhoneNumber: failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        Toast.makeText(activity, "Не вірний код!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, R.string.auth_alert_invalid_code, Toast.LENGTH_LONG).show()
                     }
                 }
             }

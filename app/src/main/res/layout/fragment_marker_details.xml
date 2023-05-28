@@ -37,6 +37,8 @@
                 android:id="@+id/ic_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="20dp"
+                android:minHeight="25dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_icon_favorite"
                 app:tint="?colorSecondary" />
@@ -45,6 +47,8 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="20dp"
+                android:minHeight="25dp"
                 android:layout_weight="1"
                 android:textAlignment="textStart"
                 app:tint="?colorSecondary"
@@ -96,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/border"
+                android:background="@drawable/bg_border_marker_card_info"
                 android:outlineProvider="bounds"
                 android:padding="2.5dp">
 
@@ -114,6 +118,8 @@
                         android:id="@+id/imageView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:minWidth="20dp"
+                        android:minHeight="25dp"
                         app:srcCompat="@drawable/ic_icon_price"
                         app:tint="?colorTertiary" />
 
@@ -134,7 +140,7 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
+                android:background="@drawable/bg_border_marker_card_info"
                 android:outlineProvider="bounds"
                 android:padding="2.5dp"
                 >
@@ -153,8 +159,9 @@
                         android:id="@+id/imageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:minWidth="20dp"
+                        android:minHeight="25dp"
                         app:tint="?colorTertiary"
-
                         app:srcCompat="@drawable/ic_icon_star" />
 
                     <TextView
@@ -212,20 +219,24 @@
         android:id="@+id/but_vote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_icon_star2"
-        android:contentDescription="Rate" />
+        android:background="@drawable/bg_marker_details_bottom_buttons"
+        android:outlineAmbientShadowColor="#040303"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:srcCompat="@drawable/ic_icon_star" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/but_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/but_vote"
-        android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_icon_edit"
-        android:contentDescription="Edit" />
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bg_marker_details_bottom_buttons"
+        android:outlineAmbientShadowColor="#040303"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:srcCompat="@drawable/ic_icon_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

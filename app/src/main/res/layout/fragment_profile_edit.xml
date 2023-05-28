@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="Налаштування профіля"
+        android:text="@string/fragment_profile_edit_title"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Ім'я"
+                android:text="@string/fragment_profile_edit_name"
                 android:textSize="22sp" />
 
             <TextView
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Телефон"
+                android:text="@string/fragment_profile_edit_phone"
                 android:textSize="22sp" />
 
             <TextView
@@ -72,7 +72,6 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                android:text="Name"
                 android:textSize="18sp" />
 
             <EditText
@@ -115,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Відмінити" />
+            android:text="@string/fragment_profile_edit_cancel_but" />
 
         <Button
             android:id="@+id/but_editProfile_save"
@@ -123,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="Зберегти" />
+            android:text="@string/fragment_profile_edit_save_but" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,13 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.location.Geocoder
 import android.util.Log
+import com.eteam.epotreba.R
 import com.eteam.epotreba.domain.models.MarkerModel
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
+
 import java.lang.Exception
 
 class MarkerRepository(private val context: Context) {
@@ -80,7 +82,7 @@ class MarkerRepository(private val context: Context) {
                     price = result.data?.get("price").toString().toDouble()
 
                 )
-                item.address = getAddress(item.position).toString()
+                item.address = getAddress(item.position)
                 markerList.add(item)
             }
         }.await()
@@ -96,6 +98,8 @@ class MarkerRepository(private val context: Context) {
     private fun getAddress(lat: LatLng): String {
         val geocoder = Geocoder(context)
         val list = geocoder.getFromLocation(lat.latitude, lat.longitude, 1)
+        if (list!!.isEmpty())
+            return context.getString(R.string.other_address_unidentified)
         val address = list?.get(0)?.getAddressLine(0)
 
         var street = ""; var number = ""; var city = ""

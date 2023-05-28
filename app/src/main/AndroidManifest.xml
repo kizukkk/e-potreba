@@ -11,11 +11,12 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="єПотрeбa"
+        android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Base.Theme.Epotreba"
-        tools:targetApi="31"
-        android:screenOrientation="sensorPortrait">
+        android:theme="@style/Theme.Epotreba"
+        tools:targetApi="tiramisu"
+        android:screenOrientation="sensorPortrait"
+        android:localeConfig="@xml/locales_config">
 
 
         <meta-data
