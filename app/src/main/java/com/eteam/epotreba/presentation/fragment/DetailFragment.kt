@@ -71,7 +71,7 @@ class DetailFragment : Fragment(R.layout.fragment_marker_details) {
                     val dialog = RateDialogFragment()
                     dialog.show(parentFragmentManager, "dialog")
                 }
-                else Toast.makeText(activity, "Ви вже виставили оцінку!", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(activity, R.string.fragment_detal_alert_vote, Toast.LENGTH_SHORT).show()
             }
         }
 

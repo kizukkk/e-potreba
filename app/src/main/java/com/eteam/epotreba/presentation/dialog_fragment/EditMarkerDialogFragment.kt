@@ -39,7 +39,7 @@ class EditMarkerDialogFragment(val textView: TextView) : DialogFragment() {
                 try {
                     value.toDouble()
                 }catch (e: NumberFormatException){
-                    Toast.makeText(activity, "Некоректний формат!",
+                    Toast.makeText(activity, R.string.other_alert_invalid_format,
                         Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }

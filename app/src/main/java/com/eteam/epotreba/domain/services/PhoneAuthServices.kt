@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
+import com.eteam.epotreba.R
 import android.widget.Toast
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -26,10 +27,10 @@ class PhoneAuthServices(val context: Context, private val auth: FirebaseAuth) {
 
             when (e) {
                 is FirebaseAuthInvalidCredentialsException -> {
-                    Toast.makeText(context, "Помилковий запит, спробуйте ще раз!!",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.auth_alert_invalid_request,Toast.LENGTH_LONG).show()
                 }
                 is FirebaseTooManyRequestsException -> {
-                    Toast.makeText(context, "Досягнуто ліміту СМС на проєкт!",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, R.string.auth_alert_sms_limit,Toast.LENGTH_LONG).show()
                 }
                 is FirebaseAuthMissingActivityForRecaptchaException -> {
                     //throw FirebaseAuthMissingActivityForRecaptchaException()
