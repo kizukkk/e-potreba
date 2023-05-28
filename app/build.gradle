@@ -15,8 +15,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-        resConfigs "ua"
-
+        resourceConfigurations += ["en", "ua"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
