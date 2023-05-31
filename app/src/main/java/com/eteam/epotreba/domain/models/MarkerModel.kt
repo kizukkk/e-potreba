@@ -3,7 +3,7 @@ package com.eteam.epotreba.domain.models
 import com.google.android.gms.maps.model.LatLng
 import java.text.DecimalFormat
 
-data class MarkerModel(
+data class MarkerModel (
     val id: String,
     var title: String,
     var about: String,
