@@ -4,6 +4,8 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import com.eteam.epotreba.R
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.eteam.epotreba.databinding.ActivitySignInBinding
@@ -21,23 +23,42 @@ class SignInActivity : AppCompatActivity() {
         val binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val actionBut = binding.butConfirm
+
+        val phoneText = binding.phoneText
+        val phoneInput = binding.phoneField
+
+        val codeText = binding.codeText
+        val codeInput = binding.codeField
+
+
+        FirebaseAuth.getInstance().firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
+
         if (auth.currentUser != null) {
             goToMain()
         }
 
         auth.setLanguageCode("ua")
 
-        binding.butSendCode.setOnClickListener {
-            val phone = binding.phoneField.text.toString()
-            phoneAuth.phoneAuth(phone)
-        }
+        actionBut.setOnClickListener {
 
-        binding.butConfirm.setOnClickListener {
-            val code = binding.codeField.text.toString()
+            if(codeText.visibility == View.GONE){
+                phoneAuth.phoneAuth(phoneInput.text.toString())
+                phoneText.visibility = View.GONE
+                phoneInput.visibility = View.GONE
+
+                codeText.visibility = View.VISIBLE
+                codeInput.visibility = View.VISIBLE
+
+                actionBut.setText(R.string.activity_sign_in_confirm)
+                return@setOnClickListener
+            }
+
+            val code = codeInput.text.toString()
             try {
                 confirmPhoneAuth(code)
             } catch (e: java.lang.Exception) {
-                Toast.makeText(this, "Спочатку надішліть КОД!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.activity_sign_in_code_alert, Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
         }
