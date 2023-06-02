@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "166621933311-bdnk74jb4n9930km6md3vt7pvd5eov86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eteam.epotreba",
+            "certificate_hash": "58c3dc9e7aa4b2f4edba1f95f05530b9efe2aa43"
+          }
+        },
+        {
           "client_id": "166621933311-df5acgmctv6r1374ukdjm6f43eg021g0.apps.googleusercontent.com",
           "client_type": 3
         }
