@@ -5,7 +5,9 @@
 Мобільний додаток для платформи Android забезпечує можливість користувачам швидко знаходити найближчі санвузли за допомогою інтерактивної карти. Він також дозволяє користувачам залишати свої відгуки про обрані вбиральні та створювати персоналізований список улюблених санвузлів.
 </p>
 
+
 # ![demo](https://github.com/sspaceless/e-potreba/blob/main/docs/app-demo.png?raw=true)
+
 
 <h1>Навігація</h1> 
 
@@ -36,6 +38,7 @@
 </i></b>
 
 </div>
+
 
 ![demo](https://github.com/sspaceless/e-potreba/blob/main/docs/demo/demo_interface.png?raw=true)
 
