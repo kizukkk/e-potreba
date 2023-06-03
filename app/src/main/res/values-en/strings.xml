@@ -6,7 +6,7 @@
     <string name="bottom_navigation_profile_label">Profile</string>
     <string name="fragment_list_title">List of Markers</string>
     <string name="fragment_profile_favorite">Favorite</string>
-    <string name="fragment_profle_owned">Owned</string>
+    <string name="fragment_profile_owned">Owned</string>
     <string name="fragment_profile_edit_title">Profle Settings</string>
     <string name="fragment_profile_edit_name">Name</string>
     <string name="fragment_profile_edit_phone">Phone</string>
@@ -27,4 +27,15 @@
     <string name="activity_sign_in_next">Continue</string>
     <string name="activity_sign_in_confirm">Confirm</string>
     <string name="activity_sign_in_incorect_code">Incorrect code!</string>
+    <string name="fragment_profle_edit_new_var">New value</string>
+    <string name="fragment_profle_edit_new_change">Change</string>
+    <string name="fragment_vote_title">Your rating</string>
+    <string name="fragment_vote_title_confirm">Send a rating</string>
+    <string name="fragment_marker_create_title">Create new marker</string>
+    <string name="fragment_marker_create_marker_title">Title</string>
+    <string name="fragment_marker_create_marker_lat">Latitude</string>
+    <string name="fragment_marker_create_marker_ln">Longitude</string>
+    <string name="fragment_marker_create_marker_about">Description</string>
+    <string name="fragment_marker_create_marker_price">Price</string>
+    <string name="fragment_marker_create_marker_create">Create</string>
 </resources>

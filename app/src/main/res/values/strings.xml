@@ -10,7 +10,7 @@
     <string name="bottom_navigation_profile_label">Профіль</string>
     <string name="fragment_list_title">Список маркерів</string>
     <string name="fragment_profile_favorite">Улюблені</string>
-    <string name="fragment_profle_owned">Створені</string>
+    <string name="fragment_profile_owned">Створені</string>
     <string name="fragment_profile_edit_title">Налаштування профіля</string>
     <string name="fragment_profile_edit_name">Ім\'я</string>
     <string name="fragment_profile_edit_phone">Телефон</string>
@@ -31,4 +31,15 @@
     <string name="activity_sign_in_next">Продовжити</string>
     <string name="activity_sign_in_confirm">Підвердити</string>
     <string name="activity_sign_in_incorect_code">Не вірний код!</string>
+    <string name="fragment_profle_edit_new_var">Нове значення</string>
+    <string name="fragment_profle_edit_new_change">Змінити</string>
+    <string name="fragment_vote_title">Ваша оцінка</string>
+    <string name="fragment_vote_title_confirm">Залишити оцінку</string>
+    <string name="fragment_marker_create_title">Створення маркеру</string>
+    <string name="fragment_marker_create_marker_title">Назва</string>
+    <string name="fragment_marker_create_marker_lat">Широта</string>
+    <string name="fragment_marker_create_marker_ln">Довгота</string>
+    <string name="fragment_marker_create_marker_about">Опис</string>
+    <string name="fragment_marker_create_marker_price">Ціна</string>
+    <string name="fragment_marker_create_marker_create">Створити</string>
 </resources>

@@ -4,7 +4,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/edit_marker_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Нове значення"
@@ -22,5 +22,5 @@
         android:id="@+id/but_sub_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Змінити" />
+        android:text="@string/fragment_profle_edit_new_change" />
 </LinearLayout>

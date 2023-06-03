@@ -10,7 +10,7 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ваша оцінка"
+        android:text="@string/fragment_vote_title"
         android:textAlignment="center"
         android:textSize="24sp" />
 
@@ -24,6 +24,6 @@
         android:id="@+id/but_sub_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Залишити оцінку" />
+        android:text="@string/fragment_vote_title_confirm" />
 
 </LinearLayout>
