@@ -6,7 +6,7 @@
     <string name="bottom_navigation_profile_label">Profile</string>
     <string name="fragment_list_title">List of Markers</string>
     <string name="fragment_profile_favorite">Favorite</string>
-    <string name="fragment_profle_owned">Owned</string>
+    <string name="fragment_profile_owned">Owned</string>
     <string name="fragment_profile_edit_title">Profle Settings</string>
     <string name="fragment_profile_edit_name">Name</string>
     <string name="fragment_profile_edit_phone">Phone</string>

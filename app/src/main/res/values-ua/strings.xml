@@ -6,7 +6,7 @@
     <string name="bottom_navigation_profile_label">Профіль</string>
     <string name="fragment_list_title">Список маркерів</string>
     <string name="fragment_profile_favorite">Улюблені</string>
-    <string name="fragment_profle_owned">Створені</string>
+    <string name="fragment_profile_owned">Створені</string>
     <string name="fragment_profile_edit_title">Налаштування профіля</string>
     <string name="fragment_profile_edit_name">Ім\'я</string>
     <string name="fragment_profile_edit_phone">Телефон</string>
