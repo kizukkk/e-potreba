@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#00433A43"
             android:text="@string/fragment_profile_favorite"
-            android:textColor="#1C1B1F"
+            android:textColor="?colorOnBackground"
             android:textSize="20sp" />
 
         <Button
@@ -93,8 +93,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00EBC3E9"
-            android:text="@string/fragment_profile_owned"
-            android:textColor="#1C1B1F"
+            android:text="@string/fragment_profle_owned"
+            android:textColor="?colorOnBackground"
+
             android:textSize="20sp" />
     </LinearLayout>
 

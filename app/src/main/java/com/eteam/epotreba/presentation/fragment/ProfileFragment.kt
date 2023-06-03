@@ -2,6 +2,7 @@ package com.eteam.epotreba.presentation.fragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,6 +24,7 @@ import com.eteam.epotreba.domain.models.MarkerModel
 import com.eteam.epotreba.presentation.activity.SignInActivity
 import com.eteam.epotreba.presentation.viewModel.MainViewModel
 import com.eteam.epotreba.presentation.viewModel.ProfileViewModel
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
@@ -127,18 +129,25 @@ class ProfileFragment : Fragment() {
         return view
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint("NotifyDataSetChanged", "ResourceAsColor")
     private suspend fun switchList(number: Int) {
+
+        val nightModeFlags =
+            context?.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK);
+        val textColor =
+            if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) R.color.md_theme_dark_onBackground else R.color.md_theme_light_onBackground
+
         when (number) {
             1 -> {
                 adapter.submit(profileViewModel.getFavoriteMarkers(mainViewModel.markerList))
                 favorite.setTextColor(Color.parseColor("#4E23AA"));
-                owned.setTextColor(Color.parseColor("#1C1B1F"));
+                owned.setTextColor(resources.getColor(textColor))
             }
+
             0 -> {
                 adapter.submit(profileViewModel.getOwnMarkers(mainViewModel.markerList))
                 owned.setTextColor(Color.parseColor("#4E23AA"));
-                favorite.setTextColor(Color.parseColor("#1C1B1F"));
+                favorite.setTextColor(resources.getColor(textColor))
 
             }
         }
