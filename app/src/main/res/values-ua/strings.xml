@@ -31,4 +31,11 @@
     <string name="fragment_profle_edit_new_change">Змінити</string>
     <string name="fragment_vote_title">Ваша оцінка</string>
     <string name="fragment_vote_title_confirm">Залишити оцінку</string>
+    <string name="fragment_marker_create_title">Створення маркеру</string>
+    <string name="fragment_marker_create_marker_title">Назва</string>
+    <string name="fragment_marker_create_marker_lat">Широта</string>
+    <string name="fragment_marker_create_marker_ln">Довгота</string>
+    <string name="fragment_marker_create_marker_about">Опис</string>
+    <string name="fragment_marker_create_marker_price">Ціна</string>
+    <string name="fragment_marker_create_marker_create">Створити</string>
 </resources>

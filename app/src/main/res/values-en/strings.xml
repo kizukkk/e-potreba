@@ -31,4 +31,11 @@
     <string name="fragment_profle_edit_new_change">Change</string>
     <string name="fragment_vote_title">Your rating</string>
     <string name="fragment_vote_title_confirm">Send a rating</string>
+    <string name="fragment_marker_create_title">Create new marker</string>
+    <string name="fragment_marker_create_marker_title">Title</string>
+    <string name="fragment_marker_create_marker_lat">Latitude</string>
+    <string name="fragment_marker_create_marker_ln">Longitude</string>
+    <string name="fragment_marker_create_marker_about">Description</string>
+    <string name="fragment_marker_create_marker_price">Price</string>
+    <string name="fragment_marker_create_marker_create">Create</string>
 </resources>
