@@ -80,7 +80,7 @@ class SignInActivity : AppCompatActivity() {
 
                     Log.w(TAG, "signInWithCredential: failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        Toast.makeText(this, "Не вірний код!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.activity_sign_in_incorect_code, Toast.LENGTH_LONG).show()
                     }
                 }
             }
