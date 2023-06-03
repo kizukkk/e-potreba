@@ -54,8 +54,8 @@
 
 <tbody>
   <tr>
-    <td><img src="docs\demo\demo_sign_in_phone.jpg"></td>
-    <td><img src="docs\demo\demo_sign_in_code.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_sign_in_phone.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_sign_in_code.jpg"></td>
   </tr>
 </tbody>
 </table>
@@ -70,7 +70,7 @@
 </br>
 
 <center>
-    <img src="docs\demo\demo_near.jpg" width="300" height="600">
+    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_near.jpg" width="300" height="600">
     
 </center>
 
@@ -88,8 +88,8 @@
 
 <tbody>
   <tr>
-    <td><img src="docs\demo\demo_tolist.jpg"></td>
-    <td><img src="docs\demo\demo_details.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_tolist.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_details.jpg"></td>
   </tr>
 </tbody>
 </table>
@@ -108,14 +108,14 @@
 
 <tbody>
   <tr>
-    <td><img src="docs\demo\demo_profile_favorite.jpg"><td>
-    <td><img src="docs\demo\demo_profile_owned.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_favorite.jpg"><td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_owned.jpg"></td>
   </tr>
 </tbody>
 </table>
 
 <center>
-    <img src="docs\demo\demo_profile_edit.jpg" width="240">
+    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_edit.jpg" width="240">
 </center>
 
 ---
@@ -133,8 +133,8 @@
 
 <tbody>
   <tr>
-    <td><img src="docs\demo\demo_create_marker_but.jpg"></td>
-    <td><img src="docs\demo\demo_Create_marker.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_create_marker_but.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_Create_marker.jpg"></td>
   </tr>
 </tbody>
 </table>
@@ -145,7 +145,7 @@
 <div align="justify">
 Супсільна думка дуже важлива річ у ділі вибору місця суспільного зібрання, тому ми надали вам зручну можливість залишити власну оцінку обраному маркеру.
 
-Також, якщо ви є власником маркеру ви зможете без зайвих зусиль відредугувати власні неточності.
+Також, якщо ви є власником маркеру ви зможете без зайвих зусиль відновити історичну несправедливість.
 
 </div>
 </br>
@@ -154,8 +154,8 @@
 
 <tbody>
   <tr>
-    <td><img src="docs\demo\demo_create_marker_but.jpg"></td>
-    <td><img src="docs\demo\demo_Create_marker.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_marker_vote.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_marker_edit.jpg"></td>
   </tr>
 </tbody>
 </table>
