@@ -25,4 +25,10 @@
     <string name="other_alert_invalid_format">Некоректний формат!</string>
     <string name="fragment_detal_alert_vote">Ви вже виставили оцінку!</string>
     <string name="other_address_unidentified">Адрес не визначено</string>
+    <string name="activity_sign_in_code_alert">Спочатку введіть код!</string>
+    <string name="activity_sign_in_title">Авторизація</string>
+    <string name="activity_sign_in_code">Код з СМС</string>
+    <string name="activity_sign_in_next">Продовжити</string>
+    <string name="activity_sign_in_confirm">Підвердити</string>
+    <string name="activity_sign_in_incorect_code">Не вірний код!</string>
 </resources>

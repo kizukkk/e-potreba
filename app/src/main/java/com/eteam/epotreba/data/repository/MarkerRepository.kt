@@ -21,8 +21,8 @@ class MarkerRepository(private val context: Context) {
         documentRef.get().addOnSuccessListener { result ->
             if (result.exists()) {
                 val list = result.get("markers") as ArrayList<String>
-
                 list.add(id)
+
                 documentRef.update("markers", list)
             } else {
                 val list = object {
@@ -102,7 +102,9 @@ class MarkerRepository(private val context: Context) {
             return context.getString(R.string.other_address_unidentified)
         val address = list?.get(0)?.getAddressLine(0)
 
-        var street = ""; var number = ""; var city = ""
+        var street = "";
+        var number = "";
+        var city = ""
 
         try {
             street = address?.split(", ")?.get(0) ?: ""
@@ -115,7 +117,7 @@ class MarkerRepository(private val context: Context) {
         return listOf(street, number, city).joinToString(", ")
     }
 
-    fun saveToFavorite(id: String, uid: String){
+    fun saveToFavorite(id: String, uid: String) {
         val documentRef = db.collection("favorite").document(uid)
 
         documentRef.get().addOnSuccessListener { result ->
@@ -134,7 +136,7 @@ class MarkerRepository(private val context: Context) {
         }
     }
 
-    fun deleteFromFavorite(id: String, uid: String){
+    fun deleteFromFavorite(id: String, uid: String) {
         val documentRef = db.collection("favorite").document(uid)
 
         documentRef.get().addOnSuccessListener { result ->
@@ -147,7 +149,7 @@ class MarkerRepository(private val context: Context) {
         }
     }
 
-    suspend fun getFavorite(uid: String): List<String>{
+    suspend fun getFavorite(uid: String): List<String> {
         var favList = emptyList<String>()
         val documentRef = db.collection("favorite").document(uid)
 

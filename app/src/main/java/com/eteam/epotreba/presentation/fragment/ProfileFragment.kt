@@ -137,8 +137,6 @@ class ProfileFragment : Fragment() {
         val textColor =
             if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) R.color.md_theme_dark_onBackground else R.color.md_theme_light_onBackground
 
-
-
         when (number) {
             1 -> {
                 adapter.submit(profileViewModel.getFavoriteMarkers(mainViewModel.markerList))
