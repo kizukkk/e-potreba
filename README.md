@@ -40,6 +40,27 @@
 
 ![demo](https://github.com/sspaceless/e-potreba/blob/readme-design/docs/demo/demo_interface.png?raw=true)
 
+
+---
+## **Перший вхід** 
+
+<div align="justify">
+Перед тим як скористатись функціоналом цього дивовижного продукту треба пройти нескладний процес авторизації на сервісі. Для цього вам знадобиться номер телефон та зв'язок з мережою оператора.
+
+</div>
+</br>
+
+<table>
+
+<tbody>
+  <tr>
+    <td><img src="docs\demo\demo_sign_in_phone.jpg"></td>
+    <td><img src="docs\demo\demo_sign_in_code.jpg"></td>
+  </tr>
+</tbody>
+</table>
+
+
 ---
 ## **Вікно вбиралень поруч**
 
@@ -59,7 +80,6 @@
 <div align="justify">
 Іноді буває що немає часу на розгляд файних маркерів на рідній карті міста, адже потреби є нагальні. Для такого є відповідне меню де ви можете одразу обрати найкраще місце для вирішення власних потреб. </br> </br>
 Вашому зіру представлена вся потрібна інформація про вбиральну: <b>рейтинг</b>, <b>оплата</b>, <b>відстань</b> та <b>назва</b>.
-
 Також легким натиском на маркер ви можете побачити всю детальну інформацію про обрану вбиральну разом з цим у вас є швидкий доступ до оцінювання якості задовільнення ваших потреб.
 </div>
 </br>
@@ -113,12 +133,29 @@
 
 <tbody>
   <tr>
-    <td><img src="docs\demo\demo_profile_owned.jpg"></td>
-    <td><img src="docs\demo\demo_profile_owned.jpg"></td>
+    <td><img src="docs\demo\demo_create_marker_but.jpg"></td>
+    <td><img src="docs\demo\demo_Create_marker.jpg"></td>
   </tr>
 </tbody>
 </table>
 
-<center>
-    <img src="docs\demo\demo_profile_edit.jpg" width="240">
-</center>
+---
+## **Оцінювання та редагування маркерів** 
+
+<div align="justify">
+Супсільна думка дуже важлива річ у ділі вибору місця суспільного зібрання, тому ми надали вам зручну можливість залишити власну оцінку обраному маркеру.
+
+Також, якщо ви є власником маркеру ви зможете без зайвих зусиль відредугувати власні неточності.
+
+</div>
+</br>
+
+<table>
+
+<tbody>
+  <tr>
+    <td><img src="docs\demo\demo_create_marker_but.jpg"></td>
+    <td><img src="docs\demo\demo_Create_marker.jpg"></td>
+  </tr>
+</tbody>
+</table>
