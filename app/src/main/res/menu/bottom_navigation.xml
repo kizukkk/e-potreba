@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/list"
+        android:icon="@drawable/ic_nav_list_24"
+        android:title="@string/bottom_navigation_list_label" />
+    <item
+        android:id="@+id/near"
+        android:icon="@drawable/ic_nav_near_24"
+        android:title="@string/bottom_navigation_near_label" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_nav_profile_24"
+        android:title="@string/bottom_navigation_profile_label" />
+</menu>

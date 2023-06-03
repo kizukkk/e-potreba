@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_border_marker_card_info"
+    android:orientation="vertical"
+    android:padding="22dp">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_vote_title"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <RatingBar
+        android:id="@+id/rate_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="0" />
+
+    <Button
+        android:id="@+id/but_sub_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fragment_vote_title_confirm" />
+
+</LinearLayout>
