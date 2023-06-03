@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7F1F8"
-    android:outlineProvider="bounds"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:outlineProvider="bounds">
 
     <TextView
         android:id="@+id/textView11"
@@ -15,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Редагування"
-        android:textColor="#1C1B1F"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +26,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"
-        android:background="@drawable/edite_marker_info_bg"
+        android:background="@drawable/bg_edit_marker_info"
         android:elevation="2dp"
         android:orientation="horizontal"
         android:padding="10dp"
@@ -48,7 +46,6 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="Назва"
-                android:textColor="#1C1B1F"
                 android:textSize="18sp" />
 
             <TextView
@@ -58,7 +55,6 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text="Адреса"
-                android:textColor="#1C1B1F"
                 android:textSize="16sp" />
 
             <TextView
@@ -67,8 +63,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Опис"
-                android:textColor="#1C1B1F" />
+                android:text="Опис" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -76,8 +71,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Ціна"
-                android:textColor="#1C1B1F" />
+                android:text="Ціна" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,7 +88,6 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:text=":"
-                android:textColor="#1C1B1F"
                 android:textSize="18sp" />
 
             <TextView
@@ -134,7 +127,6 @@
                 android:padding="5dp"
                 android:singleLine="true"
                 android:text="TextView"
-                android:textColor="#1C1B1F"
                 android:textSize="18sp" />
 
             <TextView
@@ -144,7 +136,6 @@
                 android:padding="5dp"
                 android:singleLine="true"
                 android:text="TextView"
-                android:textColor="#1C1B1F"
                 android:textSize="16sp" />
 
             <TextView
@@ -153,16 +144,14 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:singleLine="true"
-                android:text="TextView"
-                android:textColor="#1C1B1F" />
+                android:text="TextView" />
 
             <TextView
                 android:id="@+id/edit_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="TextView"
-                android:textColor="#1C1B1F" />
+                android:text="TextView" />
 
         </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.eteam.epotreba.presentation.activity
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -19,7 +20,6 @@ import com.eteam.epotreba.presentation.viewModel.MainViewModel
 import kotlinx.coroutines.launch
 
 
-
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         val toiletsListFragment = ToiletsListFragment()
         val nearFragment = NearFragment()
         val profileFragment = ProfileFragment()
+
+        permissionCheck()
 
         swipeRefreshLayout = binding.swiperRefreshLayout
         swipeRefreshLayout.setOnRefreshListener {
@@ -56,6 +58,15 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun setFragment(fragment: Fragment) {
+        supportFragmentManager.commit {
+            replace(R.id.fragmentContainerView, fragment)
+        }
+    }
+
+    private fun permissionCheck() {
         val locationPermissionRequest = registerForActivityResult(
             ActivityResultContracts.RequestMultiplePermissions()
         ) { permissions ->
@@ -65,27 +76,20 @@ class MainActivity : AppCompatActivity() {
                 }
                 permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                     // Only approximate location access granted.
-                } else -> {
-                // No location access granted.
-            }
+                }
+                else -> {
+                    startActivity(Intent(this, LocationGrantNotificationActivity::class.java))
+                    this.finish()
+                }
             }
         }
 
-// ...
-
-// Before you perform the actual permission request, check whether your app
-// already has the permissions, and whether your app needs to show a permission
-// rationale dialog. For more details, see Request permissions.
-        locationPermissionRequest.launch(arrayOf(
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION))
-
-    }
-
-    private fun setFragment(fragment: Fragment) {
-        supportFragmentManager.commit {
-            replace(R.id.fragmentContainerView, fragment)
-        }
+        locationPermissionRequest.launch(
+            arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+        )
     }
 
 

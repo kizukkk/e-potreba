@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".presentation.fragment.ProfileFragment">
 
     <LinearLayout
@@ -13,6 +14,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"
+        android:gravity="center|start"
         android:orientation="horizontal"
         app:layout_constrainedWidth="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,10 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="0"
-            android:background="@drawable/avatar_background"
+            android:background="@drawable/bg_profile_avatar"
+            android:textColor="?colorOnPrimary"
+            android:text="#"
             android:gravity="center"
-            android:text="₴"
-            android:textColor="#FFFBFE"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -36,37 +38,27 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center|start">
 
             <TextView
                 android:id="@+id/name_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fullname"
-                android:textColor="#1C1B1F"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/about_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="#1C1B1F"
-                android:textSize="16sp"
-                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/phone_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="#1C1B1F" />
+                android:text="Phone" />
 
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/edit_profile"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
@@ -92,8 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00433A43"
-            android:text="Улюблені"
-            android:textColor="#1C1B1F"
+            android:text="@string/fragment_profile_favorite"
+            android:textColor="?colorOnBackground"
             android:textSize="20sp" />
 
         <Button
@@ -101,22 +93,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00EBC3E9"
-            android:text="Створені"
-            android:textColor="#1C1B1F"
+            android:text="@string/fragment_profle_owned"
+            android:textColor="?colorOnBackground"
+
             android:textSize="20sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_marker_list_profile"
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginHorizontal="12dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:listitem="@layout/marker_item" />
+        tools:listitem="@layout/marker_list_item" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -124,7 +116,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="65dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="1"
-            android:text="Create Marker" />
+            android:text="@string/fragment_profile_marker_create_but" />
 
         <Button
             android:id="@+id/but_sign_out"
@@ -144,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="1"
-            android:text="Sign Out" />
+            android:text="@string/fragment_profile_marker_sign_out_but" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
