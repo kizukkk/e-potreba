@@ -27,4 +27,8 @@
     <string name="activity_sign_in_next">Continue</string>
     <string name="activity_sign_in_confirm">Confirm</string>
     <string name="activity_sign_in_incorect_code">Incorrect code!</string>
+    <string name="fragment_profle_edit_new_var">New value</string>
+    <string name="fragment_profle_edit_new_change">Change</string>
+    <string name="fragment_vote_title">Your rating</string>
+    <string name="fragment_vote_title_confirm">Send a rating</string>
 </resources>

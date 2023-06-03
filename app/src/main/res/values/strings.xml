@@ -31,4 +31,8 @@
     <string name="activity_sign_in_next">Продовжити</string>
     <string name="activity_sign_in_confirm">Підвердити</string>
     <string name="activity_sign_in_incorect_code">Не вірний код!</string>
+    <string name="fragment_profle_edit_new_var">Нове значення</string>
+    <string name="fragment_profle_edit_new_change">Змінити</string>
+    <string name="fragment_vote_title">Ваша оцінка</string>
+    <string name="fragment_vote_title_confirm">Залишити оцінку</string>
 </resources>
