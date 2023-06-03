@@ -30,4 +30,5 @@
     <string name="activity_sign_in_code">Код з СМС</string>
     <string name="activity_sign_in_next">Продовжити</string>
     <string name="activity_sign_in_confirm">Підвердити</string>
+    <string name="activity_sign_in_incorect_code">Не вірний код!</string>
 </resources>

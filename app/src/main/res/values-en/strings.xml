@@ -26,4 +26,5 @@
     <string name="activity_sign_in_code">Code from SMS</string>
     <string name="activity_sign_in_next">Continue</string>
     <string name="activity_sign_in_confirm">Confirm</string>
+    <string name="activity_sign_in_incorect_code">Incorrect code!</string>
 </resources>
