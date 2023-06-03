@@ -39,8 +39,6 @@ class NearFragment : Fragment(R.layout.fragment_near) {
     private lateinit var recyclerView: RecyclerView
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-
-
     private val adapter = MarkerAdapter()
     private val viewModel: MainViewModel by activityViewModels()
 
