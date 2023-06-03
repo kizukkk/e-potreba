@@ -69,10 +69,9 @@
 </div>
 </br>
 
-<center>
-    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_near.jpg" width="300" height="600">
-    
-</center>
+<div align="center">
+    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_near.jpg" width="400" height="800">
+</div>
 
 ---
 ## **Список вбиралень** 
@@ -114,9 +113,9 @@
 </tbody>
 </table>
 
-<center>
-    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_edit.jpg" width="240">
-</center>
+<div align="center">
+    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_edit.jpg" width="400">
+</div>
 
 ---
 ## **Створення маркерів** 
