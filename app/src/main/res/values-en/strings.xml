@@ -27,7 +27,7 @@
     <string name="activity_sign_in_next">Continue</string>
     <string name="activity_sign_in_confirm">Confirm</string>
     <string name="activity_sign_in_incorect_code">Incorrect code!</string>
-    <string name="fragment_profle_edit_new_var">New value</string>
+    <string name="fragment_profle_edit_new_var">New Value</string>
     <string name="fragment_profle_edit_new_change">Change</string>
     <string name="fragment_vote_title">Your rating</string>
     <string name="fragment_vote_title_confirm">Send a rating</string>
@@ -38,4 +38,11 @@
     <string name="fragment_marker_create_marker_about">Description</string>
     <string name="fragment_marker_create_marker_price">Price</string>
     <string name="fragment_marker_create_marker_create">Create</string>
+    <string name="activity_profile_create_name">Your Name</string>
+    <string name="activity_location_not_title">Location error</string>
+    <string name="activity_location_not_message">For the application to work correctly, you need to provide access to determine the current location of the device</string>
+    <string name="fragment_marker_create_price_alert">Too much!</string>
+    <string name="fragment_marker_create_successful">Successfully created!</string>
+    <string name="activity_location_grand">Grant access</string>
+    <string name="fragment_marker_create_required">This filed is required!</string>
 </resources>

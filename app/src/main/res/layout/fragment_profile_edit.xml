@@ -10,8 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:fontFamily="@font/fixel_display_family"
         android:text="@string/fragment_profile_edit_title"
         android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,16 +39,20 @@
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/fixel_display_family"
                 android:padding="8dp"
                 android:text="@string/fragment_profile_edit_name"
+                android:textFontWeight="500"
                 android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/fixel_display_family"
                 android:padding="8dp"
                 android:text="@string/fragment_profile_edit_phone"
+                android:textFontWeight="500"
                 android:textSize="22sp" />
 
             <TextView
@@ -114,7 +120,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="@string/fragment_profile_edit_cancel_but" />
+            android:fontFamily="@font/fixel_display_family"
+            android:text="@string/fragment_profile_edit_cancel_but"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/but_editProfile_save"
@@ -122,7 +131,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="1"
-            android:text="@string/fragment_profile_edit_save_but" />
+            android:fontFamily="@font/fixel_display_family"
+            android:text="@string/fragment_profile_edit_save_but"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
