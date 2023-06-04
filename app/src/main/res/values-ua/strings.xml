@@ -38,4 +38,7 @@
     <string name="fragment_marker_create_marker_about">Опис</string>
     <string name="fragment_marker_create_marker_price">Ціна</string>
     <string name="fragment_marker_create_marker_create">Створити</string>
+    <string name="activity_profile_create_name">Ваше ім\'я</string>
+    <string name="activity_location_not_title">Помилка розташування</string>
+    <string name="activity_location_not_message">Для коректної роботи застосунку треба надати доступ до визначення поточного розташування пристрою</string>
 </resources>

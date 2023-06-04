@@ -45,6 +45,7 @@
                 android:id="@+id/name_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/fixel_display_family"
                 android:text="Fullname"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -53,6 +54,7 @@
                 android:id="@+id/phone_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/fixel_display_family"
                 android:text="Phone" />
 
         </LinearLayout>
@@ -84,6 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00433A43"
+            android:fontFamily="@font/fixel_display_medium"
             android:text="@string/fragment_profile_favorite"
             android:textColor="?colorOnBackground"
             android:textSize="20sp" />
@@ -93,9 +96,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#00EBC3E9"
+            android:fontFamily="@font/fixel_display_medium"
             android:text="@string/fragment_profile_owned"
-            android:textColor="?colorOnBackground"
 
+            android:textColor="?colorOnBackground"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -127,7 +131,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="1"
-            android:text="@string/fragment_profile_marker_create_but" />
+            android:fontFamily="@font/fixel_display_family"
+            android:includeFontPadding="false"
+            android:text="@string/fragment_profile_marker_create_but"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/but_sign_out"
@@ -135,7 +142,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="1"
-            android:text="@string/fragment_profile_marker_sign_out_but" />
+            android:fontFamily="@font/fixel_display_family"
+            android:includeFontPadding="false"
+            android:text="@string/fragment_profile_marker_sign_out_but"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

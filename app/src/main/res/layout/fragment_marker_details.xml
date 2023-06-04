@@ -29,6 +29,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/fixel_display_family"
                 android:text="Title"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -37,9 +38,9 @@
                 android:id="@+id/ic_favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="20dp"
-                android:minHeight="25dp"
                 android:layout_weight="1"
+                android:minWidth="20dp"
+                android:minHeight="40dp"
                 app:srcCompat="@drawable/ic_icon_favorite"
                 app:tint="?colorSecondary" />
 
@@ -47,16 +48,16 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="20dp"
-                android:minHeight="25dp"
                 android:layout_weight="1"
+                android:minWidth="20dp"
+                android:minHeight="40dp"
                 android:textAlignment="textStart"
-                app:tint="?colorSecondary"
-                app:srcCompat="@drawable/ic_icon_navig" />
+                app:srcCompat="@drawable/ic_icon_navig"
+                app:tint="?colorSecondary" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="8dp">
@@ -65,15 +66,16 @@
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0"
+                android:minWidth="30dp"
                 app:srcCompat="@drawable/ic_icon_marker"
-                app:tint="?colorAccent"
-                 />
+                app:tint="?colorAccent" />
 
             <TextView
                 android:id="@+id/address_marker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/fixel_display_family"
                 android:gravity="center|start"
                 android:paddingStart="5dp"
                 android:singleLine="true"
@@ -86,6 +88,7 @@
             android:id="@+id/about_marker"
             android:layout_width="355dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/fixel_display_family"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             android:textSize="20sp" />
 
@@ -118,8 +121,8 @@
                         android:id="@+id/imageView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:minWidth="20dp"
-                        android:minHeight="25dp"
+                        android:minWidth="25dp"
+                        android:minHeight="30dp"
                         app:srcCompat="@drawable/ic_icon_price"
                         app:tint="?colorTertiary" />
 
@@ -127,11 +130,12 @@
                         android:id="@+id/price_marker"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="15dp"
-                        android:text="15"
+                        android:fontFamily="@font/fixel_display_medium"
+                        android:paddingLeft="5dp"
 
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:text="15"
+                        android:textSize="26sp"
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -168,10 +172,10 @@
                         android:id="@+id/score_marker"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="15dp"
+                        android:fontFamily="@font/fixel_display_medium"
+                        android:paddingLeft="5dp"
                         android:text="15"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="26sp" />
 
                 </LinearLayout>
 
