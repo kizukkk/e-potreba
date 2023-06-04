@@ -45,4 +45,8 @@
     <string name="activity_profile_create_name">Your Name</string>
     <string name="activity_location_not_title">Location error</string>
     <string name="activity_location_not_message">For the application to work correctly, you need to provide access to determine the current location of the device</string>
+    <string name="fragment_marker_create_price_alert">Too much!</string>
+    <string name="fragment_marker_create_successful">Successfully created!</string>
+    <string name="activity_location_grand">Grant access</string>
+    <string name="fragment_marker_create_required">This filed is required!</string>
 </resources>

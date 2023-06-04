@@ -41,4 +41,8 @@
     <string name="activity_profile_create_name">Ваше ім\'я</string>
     <string name="activity_location_not_title">Помилка розташування</string>
     <string name="activity_location_not_message">Для коректної роботи застосунку треба надати доступ до визначення поточного розташування пристрою</string>
+    <string name="fragment_marker_create_price_alert">Забагато!</string>
+    <string name="fragment_marker_create_successful">Успішно створено!</string>
+    <string name="activity_location_grand">Надати права</string>
+    <string name="fragment_marker_create_required">Обов\'язкове поле!</string>
 </resources>
