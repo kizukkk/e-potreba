@@ -74,8 +74,13 @@ class EditMarkerFragment : Fragment(R.layout.fragment_marker_edit) {
         deleteButton.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.delete(viewModel.passMarker)
+                viewModel.updateList()
             }
-            removeFragment()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            if(transaction != null){
+                transaction.replace(R.id.fragmentContainerView, ToiletsListFragment())
+                transaction.commit()
+            }
         }
 
         return view
