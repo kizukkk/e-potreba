@@ -5,7 +5,9 @@
 Мобільний додаток для платформи Android забезпечує можливість користувачам швидко знаходити найближчі санвузли за допомогою інтерактивної карти. Він також дозволяє користувачам залишати свої відгуки про обрані вбиральні та створювати персоналізований список улюблених санвузлів.
 </p>
 
-# ![demo](https://github.com/sspaceless/e-potreba/blob/readme-design/docs/app-demo.png?raw=true)
+
+# ![demo](https://github.com/sspaceless/e-potreba/blob/main/docs/app-demo.png?raw=true)
+
 
 <h1>Навігація</h1> 
 
@@ -37,7 +39,8 @@
 
 </div>
 
-![demo](https://github.com/sspaceless/e-potreba/blob/readme-design/docs/demo/demo_interface.png?raw=true)
+
+![demo](https://github.com/sspaceless/e-potreba/blob/main/docs/demo/demo_interface.png?raw=true)
 
 
 ---
@@ -53,8 +56,8 @@
 
 <tbody>
   <tr>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_sign_in_phone.jpg"></td>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_sign_in_code.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_sign_in_phone.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_sign_in_code.jpg"></td>
   </tr>
 </tbody>
 </table>
@@ -69,7 +72,7 @@
 </br>
 
 <div align="center">
-    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_near.jpg" width="400" height="800">
+    <img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_near.jpg" width="400" height="800">
 </div>
 
 ---
@@ -86,8 +89,8 @@
 
 <tbody>
   <tr>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_tolist.jpg"></td>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_details.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_tolist.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_details.jpg"></td>
   </tr>
 </tbody>
 </table>
@@ -106,14 +109,14 @@
 
 <tbody>
   <tr>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_favorite.jpg"><td>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_owned.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_profile_favorite.jpg"><td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_profile_owned.jpg"></td>
   </tr>
 </tbody>
 </table>
 
 <div align="center">
-    <img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_profile_edit.jpg" width="400">
+    <img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_profile_edit.jpg" width="400">
 </div>
 
 ---
@@ -131,8 +134,8 @@
 
 <tbody>
   <tr>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_create_marker_but.jpg"></td>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_Create_marker.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_create_marker_but.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_Create_marker.jpg"></td>
   </tr>
 </tbody>
 </table>
@@ -152,8 +155,8 @@
 
 <tbody>
   <tr>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_marker_vote.jpg"></td>
-    <td><img src="https://github.com/sspaceless/e-potreba/blob/readme-design/docs\demo\demo_marker_edit.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_marker_vote.jpg"></td>
+    <td><img src="https://github.com/sspaceless/e-potreba/blob/main/docs\demo\demo_marker_edit.jpg"></td>
   </tr>
 </tbody>
 </table>
