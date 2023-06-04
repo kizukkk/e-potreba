@@ -14,7 +14,7 @@ import com.eteam.epotreba.presentation.dialog_fragment.EditMarkerDialogFragment
 import com.eteam.epotreba.presentation.viewModel.MainViewModel
 import kotlinx.coroutines.launch
 
-class EditMarkerFragment : Fragment(R.layout.fragment_edit_marker) {
+class EditMarkerFragment : Fragment(R.layout.fragment_marker_edit) {
 
 
     private val viewModel: MainViewModel by activityViewModels()
@@ -29,7 +29,7 @@ class EditMarkerFragment : Fragment(R.layout.fragment_edit_marker) {
         savedInstanceState: Bundle?
     ): View {
 
-        val view = inflater.inflate(R.layout.fragment_edit_marker, container, false)
+        val view = inflater.inflate(R.layout.fragment_marker_edit, container, false)
 
         title = view.findViewById(R.id.edit_title)
         about = view.findViewById(R.id.edit_about)
