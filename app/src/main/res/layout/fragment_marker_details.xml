@@ -68,17 +68,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:minWidth="30dp"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_icon_marker"
                 app:tint="?colorAccent" />
 
             <TextView
                 android:id="@+id/address_marker"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/fixel_display_family"
                 android:gravity="center|start"
+                android:maxLines="2"
                 android:paddingStart="5dp"
-                android:singleLine="true"
+                android:singleLine="false"
                 android:text="Address"
                 android:textSize="20sp" />
 

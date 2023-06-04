@@ -168,6 +168,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/latField" />
 
             <EditText
+                android:id="@+id/aboutField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lngField" />
+
+            <EditText
                 android:id="@+id/priceField"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -176,14 +185,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/aboutField" />
 
-            <EditText
-                android:id="@+id/aboutField"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lngField" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
